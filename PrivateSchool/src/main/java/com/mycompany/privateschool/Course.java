@@ -2,27 +2,19 @@ package com.mycompany.privateschool;
 
 public class Course {
 
-    private String title;
+    private TitleName title;
     private String stream;
     private String type;
     private long startDate;
     private long endDate;
 
-    Course(String title, String stream, String type,
+    Course(TitleName title, String stream, String type,
             long startDate, long endDate) {
         this.title = title;
         this.stream = stream;
         this.type = type;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getStream() {
