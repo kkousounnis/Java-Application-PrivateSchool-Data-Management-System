@@ -8,6 +8,10 @@ public class Student {
     private Date dateOfBirth;
     private int tuitionFees;
 
+    Student(Person person) {
+        this.person = person;
+    }
+
     Student(Person person, Date dateOfBirth, int tuitionFees) {
         this.person = person;
         this.dateOfBirth = dateOfBirth;

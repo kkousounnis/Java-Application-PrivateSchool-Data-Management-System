@@ -2,12 +2,14 @@ package com.mycompany.privateschool;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
-public class InitializeListsManual {
+public class InitializePrintLists {
 
     private static ArrayList<Student> arr = new ArrayList<Student>();
 
-    InitializeListsManual() {
+    InitializePrintLists() {
+
     }
 
     public static void intializeLists() {
@@ -23,7 +25,7 @@ public class InitializeListsManual {
         Date d4 = new Date(ConvertDateToLong.convertDate("27/03/1994"));
 
         Student s1 = new Student(p1, d1, 5000);
-        
+
         Student s2 = new Student(p2, d2, 5000);
         Student s3 = new Student(p3, d3, 5000);
         Student s4 = new Student(p4, d4, 5000);
@@ -38,6 +40,22 @@ public class InitializeListsManual {
         for (int i = 0; i < arr.size(); i++) {
             System.out.println(arr.get(i));
         }
+    }
+
+    public static void manualLists() {
+        Person p = new Person();
+        System.out.println("Please give me students first name.");
+        Scanner sc = new Scanner(System.in);
+        p.setFirstName(sc.next());
+        System.out.println("Please give me students last name.");
+        p.setLastName(sc.next());
+        System.out.println("Please give me students date of birth.");
+        Date d = new Date(ConvertDateToLong.convertDate(sc.next()));
+        Student s = new Student(p);
+        s.setDateOfBirth(d);
+        System.out.println("Please give me the tuition fees of student.");
+        s.setTuitionFees(sc.nextInt());
+        arr.add(s);
     }
 
 }
