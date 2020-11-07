@@ -8,7 +8,7 @@ public class Student {
     private Date dateOfBirth;
     private int tuitionFees;
 
-    Student(Person person, Date dateOfBirth, int tutionFees) {
+    Student(Person person, Date dateOfBirth, int tuitionFees) {
         this.person = person;
         this.dateOfBirth = dateOfBirth;
         this.tuitionFees = tuitionFees;
@@ -26,14 +26,14 @@ public class Student {
         return tuitionFees;
     }
 
-    public void setTuitionFees(byte tuitionFees) {
+    public void setTuitionFees(int tuitionFees) {
         this.tuitionFees = tuitionFees;
     }
 
     @Override
     public String toString() {
         return "Student{" + "person=" + person
-                + ", dateOfBirth=" + dateOfBirth
+                + ", dateOfBirth=" + ConvertDateToLong.convertLong(dateOfBirth)
                 + ", tuitionFees=" + tuitionFees + '}';
     }
 
