@@ -6,9 +6,9 @@ public class Student {
 
     private Person person;
     private Date dateOfBirth;
-    private short tuitionFees;
+    private int tuitionFees;
 
-    Student(Person person, Date dateOfBirth, short tutionFees) {
+    Student(Person person, Date dateOfBirth, int tutionFees) {
         this.person = person;
         this.dateOfBirth = dateOfBirth;
         this.tuitionFees = tuitionFees;
@@ -22,7 +22,7 @@ public class Student {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public short getTuitionFees() {
+    public int getTuitionFees() {
         return tuitionFees;
     }
 
