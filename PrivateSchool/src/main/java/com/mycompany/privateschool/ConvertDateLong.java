@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ConvertDateToLong {
+public class ConvertDateLong {
 
     public static long convertDate(String string_date) {
         SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");

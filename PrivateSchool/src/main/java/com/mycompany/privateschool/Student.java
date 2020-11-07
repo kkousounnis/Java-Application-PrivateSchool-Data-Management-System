@@ -37,7 +37,7 @@ public class Student {
     @Override
     public String toString() {
         return "Student{" + "person=" + person
-                + ", dateOfBirth=" + ConvertDateToLong.convertLong(dateOfBirth)
+                + ", dateOfBirth=" + ConvertDateLong.convertLong(dateOfBirth)
                 + ", tuitionFees=" + tuitionFees + '}';
     }
 

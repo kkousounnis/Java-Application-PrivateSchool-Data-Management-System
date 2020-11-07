@@ -19,10 +19,10 @@ public class InitializePrintLists {
         Person p3 = new Person("Tabina", "Steinhammer");
         Person p4 = new Person("Johanna", "Stanislaw");
 
-        Date d1 = new Date(ConvertDateToLong.convertDate("05/12/1994"));
-        Date d2 = new Date(ConvertDateToLong.convertDate("06/06/1994"));
-        Date d3 = new Date(ConvertDateToLong.convertDate("20/08/1992"));
-        Date d4 = new Date(ConvertDateToLong.convertDate("27/03/1994"));
+        Date d1 = new Date(ConvertDateLong.convertDate("05/12/1994"));
+        Date d2 = new Date(ConvertDateLong.convertDate("06/06/1994"));
+        Date d3 = new Date(ConvertDateLong.convertDate("20/08/1992"));
+        Date d4 = new Date(ConvertDateLong.convertDate("27/03/1994"));
 
         Student s1 = new Student(p1, d1, 5000);
 
@@ -50,7 +50,7 @@ public class InitializePrintLists {
         System.out.println("Please give me students last name.");
         p.setLastName(sc.next());
         System.out.println("Please give me students date of birth.");
-        Date d = new Date(ConvertDateToLong.convertDate(sc.next()));
+        Date d = new Date(ConvertDateLong.convertDate(sc.next()));
         Student s = new Student(p);
         s.setDateOfBirth(d);
         System.out.println("Please give me the tuition fees of student.");
