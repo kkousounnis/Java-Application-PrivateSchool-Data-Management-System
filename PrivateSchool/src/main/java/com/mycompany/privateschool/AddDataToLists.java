@@ -3,18 +3,27 @@ package com.mycompany.privateschool;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class InitializePrintLists {
+public class AddDataToLists {
 
     private static ArrayList<Student> arrStudent = new ArrayList<Student>();
     private static ArrayList<Trainer> arrTrainer = new ArrayList<Trainer>();
     private static ArrayList<Course> arrCourse = new ArrayList<Course>();
+    private static ArrayList<Assignment> arrAssignment = new ArrayList<Assignment>();
 
-    InitializePrintLists() {
+    AddDataToLists() {
 
     }
 
     public static ArrayList<Student> getArrStudent() {
         return arrStudent;
+    }
+
+    public static ArrayList<Trainer> getArrTrainer() {
+        return arrTrainer;
+    }
+
+    public static ArrayList<Course> getArrCourse() {
+        return arrCourse;
     }
 
     public static void intializeLists() {
@@ -88,6 +97,24 @@ public class InitializePrintLists {
         arrTrainer.add(t2);
         arrTrainer.add(t3);
 
+        //Initialize Assignment
+        TitleName title1 = new TitleName("Assignment1");
+        TitleName title2 = new TitleName("Assignment2");
+        TitleName title3 = new TitleName("Assignment3");
+        TitleName title4 = new TitleName("Assignment4");
+
+        Assignment a1 = new Assignment(title1, "Create an Assignment1",
+                ConvertDateLong.convertDate("08/04/2021"));
+        Assignment a2 = new Assignment(title2, "Create an Assignment2",
+                ConvertDateLong.convertDate("08/04/2021"));
+        Assignment a3 = new Assignment(title3, "Create an Assignment3",
+                ConvertDateLong.convertDate("08/04/2021"));
+        Assignment a4 = new Assignment(title4, "Create an Assignment4",
+                ConvertDateLong.convertDate("08/04/2021"));
+        arrAssignment.add(a1);
+        arrAssignment.add(a2);
+        arrAssignment.add(a3);
+        arrAssignment.add(a4);
     }
 
     public static void showStudents() {
@@ -96,66 +123,20 @@ public class InitializePrintLists {
         }
     }
 
-    public static void showCourses() {
-        for (int i = 0; i < arrCourse.size(); i++) {
-            System.out.println(arrCourse.get(i));
-        }
-    }
-
-    public static void showTrainer() {
-        for (int i = 0; i < arrTrainer.size(); i++) {
-            System.out.println(arrTrainer.get(i));
-        }
-    }
-
-    public static void manualStudentsLists() {
-        Person p = new Person();
-        System.out.println("Please give me students first name.");
-        Scanner sc = new Scanner(System.in);
-        p.setFirstName(sc.next());
-        System.out.println("Please give me students last name.");
-        p.setLastName(sc.next());
-        System.out.println("Please give me students date of birth.");
-        Student s = new Student(p);
-        s.setDateOfBirth(ConvertDateLong.convertDate(sc.next()));
-//        Course c1 = new Course();
-//        Course c2 = new Course();
-//        Course[] courses = {c1 , c2};
-//        Student s = new Student(p, courses);
-        System.out.println("Please give me the tuition fees of student.");
-        s.setTuitionFees(sc.nextInt());
+    public static void manualAddStudentsLists(Student s) {
         arrStudent.add(s);
     }
 
-    public static void manualCourseList() {
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Please give the title of course.");
-        TitleName t1 = new TitleName(sc.next());
-        Course c = new Course(t1);
-        System.out.println("Please give the name of course");
-        c.setStream(sc.next());
-        System.out.println("Please give me if it is FullTime or PartTime");
-        c.setType(sc.next());
-        System.out.println("Please give me the start date of the course");
-        c.setStartDate(ConvertDateLong.convertDate(sc.next()));
-        System.out.println("Please give me the ending date of the course");
-        c.setEndDate(ConvertDateLong.convertDate(sc.next()));
+    public static void manualAddCourseList(Course c) {
         arrCourse.add(c);
     }
 
-    public static void manualTrainer() {
-        Scanner sc = new Scanner(System.in);
-        Person p = new Person();
-        System.out.println("Please give me trainers first name.");
-        p.setFirstName(sc.next());
-        System.out.println("Please give me trainers last name.");
-        p.setLastName(sc.next());
-        Trainer t = new Trainer(p);
-        System.out.println("Please give me what subject the trainer teaches");
-        t.setSubject(sc.next());
-        
+    public static void manualAddTrainer(Trainer t) {
         arrTrainer.add(t);
+    }
+
+    public static void manualAddAssignment(Assignment a) {
+        arrAssignment.add(a);
     }
 
 }

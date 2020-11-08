@@ -6,12 +6,16 @@ public class Assignment {
 
     private TitleName title;
     private String description;
-    private Date subDateTime;
-    private byte oralMark;
-    private byte totalMark;
+    private long subDateTime;
+    private int oralMark;
+    private int totalMark;
+
+    Assignment(TitleName title) {
+        this.title = title;
+    }
 
     Assignment(TitleName title, String description,
-            Date subDateTime, byte oralMark, byte totalMark) {
+            long subDateTime) {
         this.title = title;
         this.description = description;
         this.subDateTime = subDateTime;
@@ -26,27 +30,27 @@ public class Assignment {
         this.description = description;
     }
 
-    public Date getSubDateTime() {
+    public long getSubDateTime() {
         return subDateTime;
     }
 
-    public void setSubDateTime(Date subDateTime) {
+    public void setSubDateTime(long subDateTime) {
         this.subDateTime = subDateTime;
     }
 
-    public byte getOralMark() {
+    public int getOralMark() {
         return oralMark;
     }
 
-    public void setOralMark(byte oralMark) {
+    public void setOralMark(int oralMark) {
         this.oralMark = oralMark;
     }
 
-    public byte getTotalMark() {
+    public int getTotalMark() {
         return totalMark;
     }
 
-    public void setTotalMark(byte totalMark) {
+    public void setTotalMark(int totalMark) {
         this.totalMark = totalMark;
     }
 
