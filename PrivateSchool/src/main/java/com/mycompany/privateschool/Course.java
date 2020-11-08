@@ -8,6 +8,10 @@ public class Course {
     private long startDate;
     private long endDate;
 
+    Course(TitleName title) {
+        this.title = title;
+    }
+
     Course(TitleName title, String stream, String type,
             long startDate, long endDate) {
         this.title = title;
@@ -15,6 +19,7 @@ public class Course {
         this.type = type;
         this.startDate = startDate;
         this.endDate = endDate;
+
     }
 
     public String getStream() {
@@ -54,8 +59,8 @@ public class Course {
         return "Course{" + "title=" + title
                 + ", stream=" + stream
                 + ", type=" + type
-                + ", startDate=" + startDate
-                + ", endDate=" + endDate + '}';
+                + ", startDate=" + ConvertDateLong.convertLong(startDate)
+                + ", endDate=" + ConvertDateLong.convertLong(endDate) + '}';
     }
 
 }

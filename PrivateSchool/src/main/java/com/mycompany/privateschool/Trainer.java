@@ -6,7 +6,12 @@ public class Trainer {
     private String subject;
 
     Trainer(Person person) {
+        this.person = person;
+    }
 
+    Trainer(Person person, String subject) {
+        this.person = person;
+        this.subject = subject;
     }
 
     public String getSubject() {

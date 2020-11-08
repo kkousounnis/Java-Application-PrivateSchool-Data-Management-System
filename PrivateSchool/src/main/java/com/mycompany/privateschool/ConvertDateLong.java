@@ -17,8 +17,9 @@ public class ConvertDateLong {
         }
         return milliseconds;
     }
-    public static String convertLong(Date date){
+    public static String convertLong(long date){
+        Date d=new Date(date);
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
-        return dateFormat.format(date);
+        return dateFormat.format(d);
     }
 }
