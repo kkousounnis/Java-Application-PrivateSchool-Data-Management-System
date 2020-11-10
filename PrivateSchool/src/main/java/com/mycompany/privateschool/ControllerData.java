@@ -27,6 +27,12 @@ public class ControllerData {
     public static void setStudentsPCourse(Course c, Student s) {        
         c.spc.AddStudentsPCourse(s);
     }
+    public static void showStudentsperCourse(){
+        for (Course c:AddDataLists.getArrCourse()){
+            System.out.println(c.getTitle()+c.getStream());
+            System.out.println(c.spc.getArrStudentsPCourse());   
+        }
+    }
     
 
 }
