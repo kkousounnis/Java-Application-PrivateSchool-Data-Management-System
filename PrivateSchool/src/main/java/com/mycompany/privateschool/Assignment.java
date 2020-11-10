@@ -19,7 +19,6 @@ public class Assignment {
         this.title = title;
         this.description = description;
         this.subDateTime = subDateTime;
-        this.oralMark = oralMark;
     }
 
     public String getDescription() {

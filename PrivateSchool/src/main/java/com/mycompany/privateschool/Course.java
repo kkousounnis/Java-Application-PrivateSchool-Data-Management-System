@@ -7,6 +7,7 @@ public class Course {
     private String type;
     private long startDate;
     private long endDate;
+    public StudentsPCourse spc;
 
     Course(TitleName title) {
         this.title = title;
@@ -19,8 +20,14 @@ public class Course {
         this.type = type;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.spc = new StudentsPCourse();
 
     }
+
+    public TitleName getTitle() {
+        return title;
+    }
+    
 
     public String getStream() {
         return stream;

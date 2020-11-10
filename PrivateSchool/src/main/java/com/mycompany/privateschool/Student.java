@@ -2,24 +2,20 @@ package com.mycompany.privateschool;
 
 import java.util.Date;
 
-public class Student {
+public class Student extends Person{
 
-    private Person person;
+    //private Person person;
     private long dateOfBirth;
-    private int tuitionFees;
-    private Course[] courses;
-
-    Student(Person person) {
-        this.person = person;
+    private int tuitionFees; 
+    
+    Student(String firstName, String lastName) {
+        super(firstName, lastName);
     }
 
-    Student(Person person, Course[] courses) {
-        this.person = person;
-        this.courses = courses;
-    }
+    
 
-    Student(Person person, long dateOfBirth, int tuitionFees) {
-        this.person = person;
+    Student(String firstName, String lastName, long dateOfBirth, int tuitionFees) {
+        super(firstName, lastName);
         this.dateOfBirth = dateOfBirth;
         this.tuitionFees = tuitionFees;
     }
@@ -42,7 +38,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "person=" + person
+        return "Student{" + "person="+super.getFirstName()+super.getLastName()
                 + ", dateOfBirth=" + ConvertDateLong.convertLong(dateOfBirth)
                 + ", tuitionFees=" + tuitionFees + '}';
     }

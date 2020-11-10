@@ -1,16 +1,16 @@
 package com.mycompany.privateschool;
 
-public class Trainer {
+public class Trainer extends Person{
 
-    private Person person;
+    
     private String subject;
 
-    Trainer(Person person) {
-        this.person = person;
+    Trainer(String firstName, String lastName) {
+        super(firstName, lastName);
     }
 
-    Trainer(Person person, String subject) {
-        this.person = person;
+    Trainer(String firstName, String lastName, String subject) {
+        super(firstName, lastName);
         this.subject = subject;
     }
 
@@ -24,7 +24,8 @@ public class Trainer {
 
     @Override
     public String toString() {
-        return "Trainer{" + "person=" + person
+        return "Trainer{" + "person=" 
+                + super.getFirstName()+super.getLastName()
                 + ", subject=" + subject + '}';
     }
 
