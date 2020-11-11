@@ -42,29 +42,27 @@ public class FakeDataCreate {
         //Initialize Courses
         TitleName course1 = new TitleName("Course1");
         TitleName course2 = new TitleName("Course2");
-        TitleName course3 = new TitleName("Course3");
-        TitleName course4 = new TitleName("Course4");
 
         long fullTimeStartDate = ConvertDateLong.convertDate("01/04/2021");
         long fullTimeEndDate = ConvertDateLong.convertDate("31/05/2021");
         long partTimeStartDate = ConvertDateLong.convertDate("01/03/2021");
         long partTimeEndDate = ConvertDateLong.convertDate("31/05/2021");
 
-        Course c1 = new Course(course3, "Mathematics", "FullTime",
+        Course c1 = new Course(course2, "Javascript", true,
                 fullTimeStartDate, fullTimeEndDate);
-        Course c2 = new Course(course3, "Mathematics", "PartTime",
+        Course c2 = new Course(course2, "Javascript", false,
+                fullTimeStartDate, fullTimeEndDate);
+        Course c3 = new Course(course2, "Go", true,
                 partTimeStartDate, partTimeEndDate);
-        Course c3 = new Course(course2, "Programming", "FullTime",
+        Course c4 = new Course(course2, "Go", false,
                 partTimeStartDate, partTimeEndDate);
-        Course c4 = new Course(course2, "Programming", "PartTime",
+        Course c5 = new Course(course1, "PostgreSql", true,
                 partTimeStartDate, partTimeEndDate);
-        Course c5 = new Course(course1, "Networking", "FullTime",
+        Course c6 = new Course(course1, "PostgreSql", false,
                 partTimeStartDate, partTimeEndDate);
-        Course c6 = new Course(course1, "Networking", "PartTime",
+        Course c7 = new Course(course1, "Mysql", true,
                 partTimeStartDate, partTimeEndDate);
-        Course c7 = new Course(course4, "DataBase", "FulltimeTime",
-                partTimeStartDate, partTimeEndDate);
-        Course c8 = new Course(course4, "DataBase", "PartTime",
+        Course c8 = new Course(course1, "Mysql", false,
                 partTimeStartDate, partTimeEndDate);
 
         AddDataLists.AddCourseList(c1);
@@ -77,12 +75,23 @@ public class FakeDataCreate {
         AddDataLists.AddCourseList(c8);
 
         //Initialize Trainer
-        Trainer t1 = new Trainer("Corissa", "Abrahim", "Programming");
-        Trainer t2 = new Trainer("Judith", "Howatt", "Networking");
-        Trainer t3 = new Trainer("Merry", "Kenewell", "Database");
+        Trainer t1 = new Trainer("Corissa", "Abrahim", "Backend");
+        Trainer t2 = new Trainer("Judith", "Howatt", "DataBase");
+        Trainer t3 = new Trainer("Merry", "Kenewell", "Backend");
+        Trainer t4 = new Trainer("Isahella", "Gockelen", "DataBase");
+        Trainer t5 = new Trainer("Judith", "Howatt", "Backend");
+        Trainer t6 = new Trainer("Merry", "Kenewell", "DataBase");
+        Trainer t7 = new Trainer("Denys", "Lambden", "Backend");
+        Trainer t8 = new Trainer("Neal", "Hairsnape", "DataBase");
+
         AddDataLists.AddTrainer(t1);
         AddDataLists.AddTrainer(t2);
         AddDataLists.AddTrainer(t3);
+        AddDataLists.AddTrainer(t4);
+        AddDataLists.AddTrainer(t5);
+        AddDataLists.AddTrainer(t6);
+        AddDataLists.AddTrainer(t7);
+        AddDataLists.AddTrainer(t8);
 
         //Initialize Assignment
         TitleName title1 = new TitleName("Assignment1");
@@ -102,13 +111,21 @@ public class FakeDataCreate {
         AddDataLists.AddAssignment(a2);
         AddDataLists.AddAssignment(a3);
         AddDataLists.AddAssignment(a4);
-        
+
         //----------------------
         //Set Students per Course
         ControllerData.setStudentsPCourse(c1, s2);
         ControllerData.setStudentsPCourse(c1, s3);
-        ControllerData.setTrainersPCourse(c7, t3);
-        ControllerData.setTrainersPCourse(c5, t2);
-        
+
+        //Set Trainers per Course
+        ControllerData.setTrainersPCourse(c4, t5);
+        ControllerData.setTrainersPCourse(c3, t7);
+        ControllerData.setTrainersPCourse(c2, t1);
+        ControllerData.setTrainersPCourse(c1, t3);
+        ControllerData.setTrainersPCourse(c7, t4);
+        ControllerData.setTrainersPCourse(c8, t2);
+        ControllerData.setTrainersPCourse(c5, t8);
+        ControllerData.setTrainersPCourse(c6, t6);
+
     }
 }

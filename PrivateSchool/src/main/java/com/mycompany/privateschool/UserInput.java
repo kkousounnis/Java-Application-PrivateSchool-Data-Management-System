@@ -20,24 +20,28 @@ public class UserInput {
         s.setDateOfBirth(ConvertDateLong.convertDate(sc.next()));
         System.out.println("Please give me the tuition fees of student.");
         s.setTuitionFees(sc.nextInt());
-        AddDataLists.AddStudentsLists(s); 
+        AddDataLists.AddStudentsLists(s);
         ControllerData.showCourses();
         System.out.println("Please tell me to which course"
-                + " will the student attend");        
+                + " will the student attend");
         ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()), s);
-        
+
     }
 
     public static void manualCourseList() {
-
         Scanner sc = new Scanner(System.in);
+        char tmp;
         System.out.println("Please give the title of course.");
         TitleName t1 = new TitleName(sc.next());
         Course c = new Course(t1);
         System.out.println("Please give the name of course");
         c.setStream(sc.next());
-        System.out.println("Please give me if it is FullTime or PartTime");
-        c.setType(sc.next());
+        do {
+            System.out.println("Please type (f) if it is FullTime"
+                    + " or type (p) if it is PartTime");
+            tmp = sc.next().charAt(0);
+        } while (checkInputType(tmp) == false);
+        c.setType(checkPartFullTime(tmp));
         System.out.println("Please give me the start date of the course");
         c.setStartDate(ConvertDateLong.convertDate(sc.next()));
         System.out.println("Please give me the ending date of the course");
@@ -68,5 +72,21 @@ public class UserInput {
         System.out.println("Please give me a date to assign ");
         a.setSubDateTime(ConvertDateLong.convertDate(sc.next()));
         AddDataLists.AddAssignment(a);
+    }
+
+    //------------
+    //checks
+    public static boolean checkInputType(char s) {
+        switch (s) {
+            case 'f':
+                return true;
+            case 'p':
+                return true;
+        }
+        return false;
+    }
+
+    public static boolean checkPartFullTime(char s) {
+        return (s == 'f') ? true : false;
     }
 }

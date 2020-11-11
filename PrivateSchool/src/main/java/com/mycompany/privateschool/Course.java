@@ -4,7 +4,7 @@ public class Course {
 
     private TitleName title;
     private String stream;
-    private String type;
+    private boolean type;
     private long startDate;
     private long endDate;
     public StudentsPCourse spc;
@@ -14,7 +14,7 @@ public class Course {
         this.title = title;
     }
 
-    Course(TitleName title, String stream, String type,
+    Course(TitleName title, String stream, boolean type,
             long startDate, long endDate) {
         this.title = title;
         this.stream = stream;
@@ -29,7 +29,6 @@ public class Course {
     public TitleName getTitle() {
         return title;
     }
-    
 
     public String getStream() {
         return stream;
@@ -39,11 +38,11 @@ public class Course {
         this.stream = stream;
     }
 
-    public String getType() {
+    public boolean getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(boolean type) {
         this.type = type;
     }
 
@@ -63,11 +62,15 @@ public class Course {
         this.endDate = endDate;
     }
 
+    public static String checkType(boolean b) {
+        return (b == true) ? "FullTime" : "PartTime";
+    }
+
     @Override
     public String toString() {
         return "Course{" + "title=" + title
                 + ", stream=" + stream
-                + ", type=" + type
+                + ", type=" + checkType(type)
                 + ", startDate=" + ConvertDateLong.convertLong(startDate)
                 + ", endDate=" + ConvertDateLong.convertLong(endDate) + '}';
     }

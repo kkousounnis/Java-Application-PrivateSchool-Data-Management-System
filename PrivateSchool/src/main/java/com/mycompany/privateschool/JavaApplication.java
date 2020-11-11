@@ -1,7 +1,5 @@
 package com.mycompany.privateschool;
 
-import java.util.ArrayList;
-
 public class JavaApplication {
 
     public static void main(String[] args) {
@@ -13,21 +11,21 @@ public class JavaApplication {
         ControllerData.showTrainer();
         System.out.println("---------apo edw kai katw");
         
-         
         ControllerData.showTrainersPCourse();
+        
+        UserInput.manualCourseList();
+        System.out.println("------------");
+        ControllerData.showCourses();
 //        ControllerData.showStudentsPCourse();
 //        
 //        UserInput.manualStudentsLists();
 //        ControllerData.showStudentsPCourse();
-         
+
 //        for (Course c:AddDataLists.getArrCourse()){
 //            System.out.println(c.getTitle()+c.getStream());
 //            System.out.println(c.spc.getArrStudentsPCourse());
 //        
 //        }
     }
-    
-     
-    
-    
+
 }
