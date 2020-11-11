@@ -3,11 +3,11 @@ package com.mycompany.privateschool;
 import java.util.Scanner;
 
 public class UserInput {
-    
+
     UserInput() {
-        
+
     }
-    
+
     public static void manualStudentsLists() {
         Person p = new Person();
         System.out.println("Please give me students first name.");
@@ -20,11 +20,16 @@ public class UserInput {
         s.setDateOfBirth(ConvertDateLong.convertDate(sc.next()));
         System.out.println("Please give me the tuition fees of student.");
         s.setTuitionFees(sc.nextInt());
-        AddDataLists.AddStudentsLists(s);
-    }
-    
-    public static void manualCourseList() {
+        AddDataLists.AddStudentsLists(s); 
+        ControllerData.showCourses();
+        System.out.println("Please tell me to which course"
+                + " will the student attend");        
+        ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()), s);
         
+    }
+
+    public static void manualCourseList() {
+
         Scanner sc = new Scanner(System.in);
         System.out.println("Please give the title of course.");
         TitleName t1 = new TitleName(sc.next());
@@ -39,7 +44,7 @@ public class UserInput {
         c.setEndDate(ConvertDateLong.convertDate(sc.next()));
         AddDataLists.AddCourseList(c);
     }
-    
+
     public static void manualTrainer() {
         Scanner sc = new Scanner(System.in);
         Person p = new Person();
@@ -52,7 +57,7 @@ public class UserInput {
         t.setSubject(sc.next());
         AddDataLists.AddTrainer(t);
     }
-    
+
     public static void manualAssignment() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please give me the title of assignment");

@@ -8,6 +8,7 @@ public class Course {
     private long startDate;
     private long endDate;
     public StudentsPCourse spc;
+    public TrainersPCourse tpc;
 
     Course(TitleName title) {
         this.title = title;
@@ -21,6 +22,7 @@ public class Course {
         this.startDate = startDate;
         this.endDate = endDate;
         this.spc = new StudentsPCourse();
+        this.tpc = new TrainersPCourse();
 
     }
 

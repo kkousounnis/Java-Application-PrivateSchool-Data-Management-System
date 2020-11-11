@@ -107,8 +107,8 @@ public class FakeDataCreate {
         //Set Students per Course
         ControllerData.setStudentsPCourse(c1, s2);
         ControllerData.setStudentsPCourse(c1, s3);
-//        ControllerData.setTrainerToCourse(c1, t3);
-//        ControllerData.setTrainerToCourse(c2, t2);
+        ControllerData.setTrainersPCourse(c7, t3);
+        ControllerData.setTrainersPCourse(c5, t2);
         
     }
 }

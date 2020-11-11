@@ -13,7 +13,13 @@ public class JavaApplication {
         ControllerData.showTrainer();
         System.out.println("---------apo edw kai katw");
         
-        ControllerData.showStudentsperCourse();
+         
+        ControllerData.showTrainersPCourse();
+//        ControllerData.showStudentsPCourse();
+//        
+//        UserInput.manualStudentsLists();
+//        ControllerData.showStudentsPCourse();
+         
 //        for (Course c:AddDataLists.getArrCourse()){
 //            System.out.println(c.getTitle()+c.getStream());
 //            System.out.println(c.spc.getArrStudentsPCourse());

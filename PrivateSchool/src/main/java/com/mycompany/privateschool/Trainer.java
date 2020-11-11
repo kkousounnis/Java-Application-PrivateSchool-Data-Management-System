@@ -1,8 +1,7 @@
 package com.mycompany.privateschool;
 
-public class Trainer extends Person{
+public class Trainer extends Person {
 
-    
     private String subject;
 
     Trainer(String firstName, String lastName) {
@@ -22,10 +21,12 @@ public class Trainer extends Person{
         this.subject = subject;
     }
 
+    
+
     @Override
     public String toString() {
-        return "Trainer{" + "person=" 
-                + super.getFirstName()+super.getLastName()
+        return "Trainer{" + "person="
+                + super.getFirstName() + super.getLastName()
                 + ", subject=" + subject + '}';
     }
 

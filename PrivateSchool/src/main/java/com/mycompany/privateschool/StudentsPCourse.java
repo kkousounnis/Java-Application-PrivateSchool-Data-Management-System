@@ -12,7 +12,6 @@ public class StudentsPCourse {
         arrStudentsPCourse = new ArrayList<Student>();
     }
     StudentsPCourse() {
-        this.course = course;
         arrStudentsPCourse = new ArrayList<Student>();
     }
 

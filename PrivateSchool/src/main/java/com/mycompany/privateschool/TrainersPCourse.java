@@ -2,23 +2,26 @@ package com.mycompany.privateschool;
 
 import java.util.ArrayList;
 
-public class TrainerPCourse {
+public class TrainersPCourse {
 
     private Course course;
     private ArrayList<Trainer> trainersPCourse;
 
-    TrainerPCourse(Course course) {
+    TrainersPCourse() {
+        trainersPCourse = new ArrayList<Trainer>();
+    }
+
+    TrainersPCourse(Course course) {
         this.course = course;
         trainersPCourse = new ArrayList<Trainer>();
     }
 
-    public ArrayList<Trainer> getTrainersPerCourseList() {
+    public ArrayList<Trainer> getTrainersPCourseList() {
         return trainersPCourse;
     }
 
-    public void addTrainer(Trainer trainer) {
+    public void addTrainersPCourse(Trainer trainer) {
         this.trainersPCourse.add(trainer);
     }
 
-    
 }
