@@ -53,4 +53,15 @@ public class Assignment {
         this.totalMark = totalMark;
     }
 
+    @Override
+    public String toString() {
+        return "Assignment{" 
+                + "title=" + title 
+                + ", description=" + description 
+                + ", subDateTime=" + ConvertDateLong.convertLong(subDateTime) 
+                + ", oralMark=" + oralMark 
+                + ", totalMark=" + totalMark + '}';
+    }
+    
+
 }

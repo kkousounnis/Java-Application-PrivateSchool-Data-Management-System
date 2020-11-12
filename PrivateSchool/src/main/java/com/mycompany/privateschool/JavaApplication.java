@@ -10,12 +10,20 @@ public class JavaApplication {
         System.out.println("--------");
         ControllerData.showTrainer();
         System.out.println("---------apo edw kai katw");
-        
+        ControllerData.showStudentsPCourse();
+        System.out.println("--------------");
         ControllerData.showTrainersPCourse();
+        System.out.println("----------------");
+        ControllerData.showAssignmentPCourse();
         
-        UserInput.manualCourseList();
-        System.out.println("------------");
-        ControllerData.showCourses();
+        UserInput.manualAssignment();
+        ControllerData.showAssignmentPCourse();
+     
+//        UserInput.manualCourseList();
+//        System.out.println("------------");
+//        ControllerData.showCourses();
+        
+        
 //        ControllerData.showStudentsPCourse();
 //        
 //        UserInput.manualStudentsLists();

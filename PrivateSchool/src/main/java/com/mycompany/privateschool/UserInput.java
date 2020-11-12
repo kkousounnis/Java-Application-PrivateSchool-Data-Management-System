@@ -47,6 +47,7 @@ public class UserInput {
         System.out.println("Please give me the ending date of the course");
         c.setEndDate(ConvertDateLong.convertDate(sc.next()));
         AddDataLists.AddCourseList(c);
+
     }
 
     public static void manualTrainer() {
@@ -60,18 +61,27 @@ public class UserInput {
         System.out.println("Please give me what subject the trainer teaches");
         t.setSubject(sc.next());
         AddDataLists.AddTrainer(t);
+        ControllerData.showCourses();
+        System.out.println("Please tell me which course"
+                + " will the trainer teach");
+        ControllerData.setTrainersPCourse(AddDataLists.getArrCourse().get(sc.nextInt()), t);
     }
 
     public static void manualAssignment() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please give me the title of assignment");
         TitleName title1 = new TitleName(sc.next());
+        
         Assignment a = new Assignment(title1);
         System.out.println("Please give me a description of assignment");
-        a.setDescription(sc.nextLine());
+        a.setDescription(sc.next());
+        
         System.out.println("Please give me a date to assign ");
         a.setSubDateTime(ConvertDateLong.convertDate(sc.next()));
         AddDataLists.AddAssignment(a);
+        ControllerData.showCourses();
+        System.out.println("Please tell to which course assignment belongs");
+        ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()), a);
     }
 
     //------------

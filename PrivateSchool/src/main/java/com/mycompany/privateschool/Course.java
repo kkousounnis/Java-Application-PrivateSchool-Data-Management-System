@@ -7,8 +7,9 @@ public class Course {
     private boolean type;
     private long startDate;
     private long endDate;
-    public StudentsPCourse spc;
-    public TrainersPCourse tpc;
+    public StudentsPCourse studentsPerCourse;
+    public TrainersPCourse trainerPerCourse;
+    public AssignmentPCourse assignmentPerCourse;
 
     Course(TitleName title) {
         this.title = title;
@@ -21,8 +22,9 @@ public class Course {
         this.type = type;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.spc = new StudentsPCourse();
-        this.tpc = new TrainersPCourse();
+        this.studentsPerCourse = new StudentsPCourse();
+        this.trainerPerCourse = new TrainersPCourse();
+        this.assignmentPerCourse = new AssignmentPCourse();
 
     }
 
@@ -74,5 +76,4 @@ public class Course {
                 + ", startDate=" + ConvertDateLong.convertLong(startDate)
                 + ", endDate=" + ConvertDateLong.convertLong(endDate) + '}';
     }
-
 }

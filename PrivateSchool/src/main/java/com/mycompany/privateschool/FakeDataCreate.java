@@ -127,5 +127,39 @@ public class FakeDataCreate {
         ControllerData.setTrainersPCourse(c5, t8);
         ControllerData.setTrainersPCourse(c6, t6);
 
+        //Set Assignment per Course
+        ControllerData.setAssignmentsPCourse(c1, a1);
+        ControllerData.setAssignmentsPCourse(c1, a2);
+        ControllerData.setAssignmentsPCourse(c1, a3);
+        ControllerData.setAssignmentsPCourse(c1, a4);
+        ControllerData.setAssignmentsPCourse(c2, a1);
+        ControllerData.setAssignmentsPCourse(c2, a2);
+        ControllerData.setAssignmentsPCourse(c2, a3);
+        ControllerData.setAssignmentsPCourse(c2, a4);
+        ControllerData.setAssignmentsPCourse(c3, a1);
+        ControllerData.setAssignmentsPCourse(c3, a2);
+        ControllerData.setAssignmentsPCourse(c3, a3);
+        ControllerData.setAssignmentsPCourse(c3, a4);
+        ControllerData.setAssignmentsPCourse(c4, a1);
+        ControllerData.setAssignmentsPCourse(c4, a2);
+        ControllerData.setAssignmentsPCourse(c4, a3);
+        ControllerData.setAssignmentsPCourse(c4, a4);
+        ControllerData.setAssignmentsPCourse(c5, a1);
+        ControllerData.setAssignmentsPCourse(c5, a2);
+        ControllerData.setAssignmentsPCourse(c5, a3);
+        ControllerData.setAssignmentsPCourse(c5, a4);
+        ControllerData.setAssignmentsPCourse(c6, a1);
+        ControllerData.setAssignmentsPCourse(c6, a2);
+        ControllerData.setAssignmentsPCourse(c6, a3);
+        ControllerData.setAssignmentsPCourse(c6, a4);
+        ControllerData.setAssignmentsPCourse(c7, a1);
+        ControllerData.setAssignmentsPCourse(c7, a2);
+        ControllerData.setAssignmentsPCourse(c7, a3);
+        ControllerData.setAssignmentsPCourse(c7, a4);
+        ControllerData.setAssignmentsPCourse(c8, a1);
+        ControllerData.setAssignmentsPCourse(c8, a2);
+        ControllerData.setAssignmentsPCourse(c8, a3);
+        ControllerData.setAssignmentsPCourse(c8, a4);
+        
     }
 }

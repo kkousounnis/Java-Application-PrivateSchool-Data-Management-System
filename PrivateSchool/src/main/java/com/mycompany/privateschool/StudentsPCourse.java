@@ -7,11 +7,12 @@ public class StudentsPCourse {
     private ArrayList<Student> arrStudentsPCourse;
     private Course course;
 
-    StudentsPCourse(Course course) {
-        this.course = course;
+    StudentsPCourse() {
         arrStudentsPCourse = new ArrayList<Student>();
     }
-    StudentsPCourse() {
+
+    StudentsPCourse(Course course) {
+        this.course = course;
         arrStudentsPCourse = new ArrayList<Student>();
     }
 
@@ -22,6 +23,5 @@ public class StudentsPCourse {
     public void AddStudentsPCourse(Student s) {
         this.arrStudentsPCourse.add(s);
     }
-
 
 }
