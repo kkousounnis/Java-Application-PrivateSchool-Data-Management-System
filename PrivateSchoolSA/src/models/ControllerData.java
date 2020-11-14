@@ -8,19 +8,25 @@ public class ControllerData {
 
     public static void showStudents() {
         for (int i = 0; i < AddDataLists.getArrStudent().size(); i++) {
-            System.out.println(AddDataLists.getArrStudent().get(i));
+            System.out.println((i+1) + ": " +AddDataLists.getArrStudent().get(i));
         }
     }
 
     public static void showCourses() {
         for (int i = 0; i < AddDataLists.getArrCourse().size(); i++) {
-            System.out.println(i + ": " + AddDataLists.getArrCourse().get(i));
+            System.out.println((i+1) + ": " + AddDataLists.getArrCourse().get(i));
         }
     }
 
-    public static void showTrainer() {
+    public static void showTrainers() {
         for (int i = 0; i < AddDataLists.getArrTrainer().size(); i++) {
-            System.out.println(AddDataLists.getArrTrainer().get(i));
+            System.out.println((i+1) + ": " +AddDataLists.getArrTrainer().get(i));
+        }
+    }
+    
+    public static void showAssignments() {
+        for (int i = 0; i < AddDataLists.getArrAssignment().size(); i++) {
+            System.out.println((i+1) + ": " +AddDataLists.getArrAssignment().get(i));
         }
     }
 

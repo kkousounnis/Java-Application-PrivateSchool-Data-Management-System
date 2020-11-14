@@ -25,7 +25,7 @@ public class UserInput {
         ControllerData.showCourses();
         System.out.println("Please tell me to which course"
                 + " will the student attend");
-        ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()), s);
+        ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()-1), s);
 
     }
 
@@ -65,7 +65,7 @@ public class UserInput {
         ControllerData.showCourses();
         System.out.println("Please tell me which course"
                 + " will the trainer teach");
-        ControllerData.setTrainersPCourse(AddDataLists.getArrCourse().get(sc.nextInt()), t);
+        ControllerData.setTrainersPCourse(AddDataLists.getArrCourse().get(sc.nextInt()-1), t);
     }
 
     public static void manualAssignment() {
@@ -75,14 +75,16 @@ public class UserInput {
         
         Assignment a = new Assignment(title1);
         System.out.println("Please give me a description of assignment");
-        a.setDescription(sc.next());
-        
+        sc.nextLine();
+        a.setDescription(sc.nextLine());
         System.out.println("Please give me a date to assign ");
         a.setSubDateTime(ConvertDateLong.convertDate(sc.next()));
+        
+        
         AddDataLists.AddAssignment(a);
         ControllerData.showCourses();
         System.out.println("Please tell to which course assignment belongs");
-        ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()), a);
+        ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()-1), a);
     }
 
     //------------
