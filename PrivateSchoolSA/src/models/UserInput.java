@@ -2,7 +2,6 @@ package models;
 
 import java.util.Scanner;
 
-
 public class UserInput {
 
     UserInput() {
@@ -10,22 +9,37 @@ public class UserInput {
     }
 
     public static void manualStudentsLists() {
-        Person p = new Person();
-        System.out.println("Please give me students first name.");
         Scanner sc = new Scanner(System.in);
-        p.setFirstName(sc.next());
-        System.out.println("Please give me students last name.");
-        p.setLastName(sc.next());
-        System.out.println("Please give me students date of birth.");
-        Student s = new Student(p.getFirstName(), p.getLastName());
-        s.setDateOfBirth(ConvertDateLong.convertDate(sc.next()));
-        System.out.println("Please give me the tuition fees of student.");
-        s.setTuitionFees(sc.nextInt());
+        Person p = new Person();
+        Student s;
+        if (multipleOrStepBystepInput()) {
+            System.out.println("Please give me students first name.");
+            p.setFirstName(sc.next());
+            System.out.println("Please give me students last name.");
+            p.setLastName(sc.next());
+            System.out.println("Please give me students date of birth.");
+            s = new Student(p.getFirstName(), p.getLastName());
+            s.setDateOfBirth(ConvertDateLong.convertDate(sc.next()));
+            System.out.println("Please give me the tuition fees of student.");
+            s.setTuitionFees(sc.nextInt());
+
+        } else {
+
+            System.out.println("[firsname lastname dateofbirth tuitionfees]");
+            String allInputs = sc.nextLine();
+            String[] student = allInputs.split(" ");
+            p.setFirstName(student[0]);
+            p.setLastName(student[1]);
+            s = new Student(p.getFirstName(), p.getLastName());
+            s.setDateOfBirth(ConvertDateLong.convertDate(student[2]));
+            s.setTuitionFees(Integer.parseInt(student[3]));
+
+        }
         AddDataLists.AddStudentsLists(s);
         ControllerData.showCourses();
         System.out.println("Please tell me to which course"
                 + " will the student attend");
-        ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()-1), s);
+        ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt() - 1), s);
 
     }
 
@@ -65,26 +79,25 @@ public class UserInput {
         ControllerData.showCourses();
         System.out.println("Please tell me which course"
                 + " will the trainer teach");
-        ControllerData.setTrainersPCourse(AddDataLists.getArrCourse().get(sc.nextInt()-1), t);
+        ControllerData.setTrainersPCourse(AddDataLists.getArrCourse().get(sc.nextInt() - 1), t);
     }
 
     public static void manualAssignment() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Please give me the title of assignment");
         TitleName title1 = new TitleName(sc.next());
-        
+
         Assignment a = new Assignment(title1);
         System.out.println("Please give me a description of assignment");
         sc.nextLine();
         a.setDescription(sc.nextLine());
         System.out.println("Please give me a date to assign ");
         a.setSubDateTime(ConvertDateLong.convertDate(sc.next()));
-        
-        
+
         AddDataLists.AddAssignment(a);
         ControllerData.showCourses();
         System.out.println("Please tell to which course assignment belongs");
-        ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt()-1), a);
+        ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt() - 1), a);
     }
 
     //------------
@@ -101,5 +114,37 @@ public class UserInput {
 
     public static boolean checkPartFullTime(char s) {
         return (s == 'f') ? true : false;
+    }
+
+    public static boolean multipleOrStepBystepInput() {
+        System.out.println("Choose the way you want to insert "
+                + " your values");
+        System.out.println("Type 1 for step by step input Press 2 "
+                + "for multiple inputs");
+
+        return (checkIntegerInput(2) == 1);
+    }
+
+    public static int checkIntegerInput(int x) {
+        Scanner scan = new Scanner(System.in);
+        boolean catchexception = false;
+        int choice = 0;
+        do {
+            System.out.print("Enter a number to proceed : ");
+            if (scan.hasNextInt()) {
+
+                choice = scan.nextInt();
+                if (choice >= 1 & choice <= x) {
+                    catchexception = true;
+                } else {
+                    scan.nextLine();
+                    System.out.println("Enter a valid Integer value");
+                }
+            } else {
+                scan.nextLine();
+                System.out.println("Enter a valid Integer value");
+            }
+        } while (!catchexception);
+        return choice;
     }
 }

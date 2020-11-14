@@ -19,11 +19,11 @@ public class WelcomeScreen {
         this.choice = checkIntegerInput(3);
         switch (this.choice) {
             case 1:
-                MainMenu();
+                mainMenu();
                 break;
             case 2:
                 FakeDataCreate.intializeLists();
-                MainMenu();
+                mainMenu();
                 break;
             case 3:
                 System.out.println("Goodbey!!!");
@@ -31,7 +31,7 @@ public class WelcomeScreen {
         }
     }
 
-    public void MainMenu() {
+    public void mainMenu() {
         showMainMenu();
         //i assigned to 3 because i only 1,2,3,4,5 choices 
         this.choice = checkIntegerInput(5);
@@ -84,7 +84,7 @@ public class WelcomeScreen {
                 break;
             case 6:
                 clearConsole();
-                MainMenu();
+                mainMenu();
                 break;
         }
 
@@ -121,10 +121,11 @@ public class WelcomeScreen {
                 break;
             case 5:
                 //assignment to do show students who attend in more than one course
+                
                 break;
             case 6:
                 clearConsole();
-                MainMenu();
+                mainMenu();
                 break;
         }
 
@@ -158,7 +159,7 @@ public class WelcomeScreen {
                 break;
             case 4:
                 clearConsole();
-                MainMenu();
+                mainMenu();
                 break;      
         }
 
@@ -193,7 +194,7 @@ public class WelcomeScreen {
                 //to do
             case 5:
                 clearConsole();
-                MainMenu();
+                mainMenu();
                 break;      
         }
 

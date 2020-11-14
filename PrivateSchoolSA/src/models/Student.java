@@ -5,10 +5,10 @@ import privateschool.*;
 import java.util.Date;
 
 public class Student extends Person{
-
-    //private Person person;
+    
     private long dateOfBirth;
-    private int tuitionFees; 
+    private int tuitionFees;    
+    public CoursesPStudent coursesPStudent;
     
     Student(String firstName, String lastName) {
         super(firstName, lastName);
@@ -19,7 +19,8 @@ public class Student extends Person{
     Student(String firstName, String lastName, long dateOfBirth, int tuitionFees) {
         super(firstName, lastName);
         this.dateOfBirth = dateOfBirth;
-        this.tuitionFees = tuitionFees;
+        this.tuitionFees = tuitionFees;        
+        coursesPStudent = new CoursesPStudent();
     }
 
     public long getDateOfBirth() {

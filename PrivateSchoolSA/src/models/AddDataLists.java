@@ -26,7 +26,7 @@ public class AddDataLists {
     public static ArrayList<Course> getArrCourse() {
         return arrCourse;
     }
-    
+
     public static ArrayList<Assignment> getArrAssignment() {
         return arrAssignment;
     }
