@@ -37,20 +37,20 @@ public class WelcomeScreen {
         this.choice = checkIntegerInput(5);
         switch (this.choice) {
             case 1:
-                showCourseMenu();
-                break;
+                CourseMenu();                               
             case 2:
-                showStudentMenu();
-                break;
+                //StudentMenu();
+                break;                
             case 3:
-                showTrainerMenu();
+                //TrainerMenu(); 
                 break;
             case 4:
-                showAssignmentMenu();
+                //AssignmentMenu();  
                 break;
-            case 6:
-                clearConsole();
+            case 5:
                 Menu();
+                break;
+                
         }
 
     }
@@ -61,24 +61,31 @@ public class WelcomeScreen {
         this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
-                UserInput.manualCourseList();
+                UserInput.manualCourseList(); 
+                CourseMenu();
                 break;
             case 2:
-                ControllerData.showCourses();
+                ControllerData.showCourses();   
+                CourseMenu();
                 break;
             case 3:
                 ControllerData.showStudentsPCourse();
+                CourseMenu();
                 break;
             case 4:
                 ControllerData.showTrainersPCourse();
+                CourseMenu();
                 break;
             case 5:
                 ControllerData.showAssignmentPCourse();
+                CourseMenu();
                 break;
             case 6:
                 clearConsole();
                 MainMenu();
+                break;
         }
+        
     }
 
     public void showWelcomeMenu() {
@@ -99,7 +106,7 @@ public class WelcomeScreen {
     }
 
     public void showMainMenu() {
-
+        System.out.println("       Main Menu      ");
         System.out.println("Please choose how would you like to proceed");
         System.out.println("1: Proceed to Course Menu.");
         System.out.println("2: Proceed to Student Menu.");
@@ -153,7 +160,7 @@ public class WelcomeScreen {
 
     public int checkIntegerInput(int x) {
         boolean catchexception = false;
-        int choice = 0;
+        this.choice = 0;
         do {
             System.out.print("Enter a number to proceed : ");
             if (scan.hasNextInt()) {
