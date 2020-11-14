@@ -1,7 +1,7 @@
 package controller;
 
 import java.util.Scanner;
-import models.FakeDataCreate;
+import models.*;
 
 public class WelcomeScreen {
 
@@ -26,27 +26,59 @@ public class WelcomeScreen {
                 MainMenu();
                 break;
             case 3:
+                System.out.println("Goodbey!!!");
                 break;
         }
     }
 
     public void MainMenu() {
         showMainMenu();
+        //i assigned to 3 because i only 1,2,3,4,5 choices 
         this.choice = checkIntegerInput(5);
         switch (this.choice) {
             case 1:
+                showCourseMenu();
                 break;
             case 2:
+                showStudentMenu();
                 break;
             case 3:
+                showTrainerMenu();
                 break;
             case 4:
+                showAssignmentMenu();
                 break;
-            case 5:
+            case 6:
                 clearConsole();
                 Menu();
         }
 
+    }
+
+    public void CourseMenu() {
+        showCourseMenu();
+        //i assigned to 3 because i only 1,2,3,4,5,6 choices 
+        this.choice = checkIntegerInput(6);
+        switch (this.choice) {
+            case 1:
+                UserInput.manualCourseList();
+                break;
+            case 2:
+                ControllerData.showCourses();
+                break;
+            case 3:
+                ControllerData.showStudentsPCourse();
+                break;
+            case 4:
+                ControllerData.showTrainersPCourse();
+                break;
+            case 5:
+                ControllerData.showAssignmentPCourse();
+                break;
+            case 6:
+                clearConsole();
+                MainMenu();
+        }
     }
 
     public void showWelcomeMenu() {
@@ -74,6 +106,48 @@ public class WelcomeScreen {
         System.out.println("3: Proceed to Trainer Menu.");
         System.out.println("4: Proceed to Assignment Menu.");
         System.out.println("5: Return to strat Menu.");
+
+    }
+
+    public void showCourseMenu() {
+        System.out.println("       Course Menu      ");
+        System.out.println("Please choose how would you like to proceed");
+        System.out.println("1: Course Manualy create.");
+        System.out.println("2: Show all courses.");
+        System.out.println("3: Show students per course.");
+        System.out.println("4: Show trainers per course.");
+        System.out.println("5: Show assignments per course.");
+        System.out.println("6: Return.");
+    }
+
+    public void showStudentMenu() {
+        System.out.println("       Student Menu      ");
+        System.out.println("Please choose how would you like to proceed");
+        System.out.println("1: Create Manually student.");
+        System.out.println("2: Show all student.");
+        System.out.println("3: Choose student which lessons will attend.");
+        System.out.println("4: Show student assignments");
+        System.out.println("5: Show students who attend in"
+                + " more than one course.");
+        System.out.println("6: Return.");
+    }
+
+    void showTrainerMenu() {
+        System.out.println("       Trainer Menu      ");
+        System.out.println("Please choos how would you like to proceed.");
+        System.out.println("1: Create Manually trainer.");
+        System.out.println("2: Show all trainers");
+        System.out.println("3: Choose trainer which lesson teaches.");
+        System.out.println("4: Return.");
+    }
+
+    public void showAssignmentMenu() {
+        System.out.println("       Assignment Menu      ");
+        System.out.println("Please choose how would you like to proceed");
+        System.out.println("1: Create manually assignment.");
+        System.out.println("2: Show all assignments.");
+        System.out.println("3: Choose course for assignment.");
+        System.out.println("4: Show students with pending submisions");
 
     }
 

@@ -1,7 +1,5 @@
 package models;
 
-
-import privateschool.*;
 public class Course {
 
     private TitleName title;
