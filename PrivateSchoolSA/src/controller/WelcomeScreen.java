@@ -119,6 +119,13 @@ public class WelcomeScreen {
                 break;
             case 4:
                 //assignment to do show student assignments
+                clearConsole();
+                ControllerData.showStudents();
+                System.out.println("Please specify student "
+                        + " from List by typing number");
+                studentIndex = checkIntegerInput(AddDataLists.getArrStudent().size());                
+                ControllerData.showStudentAssignments(AddDataLists.getArrStudent().get(studentIndex - 1));               
+                studentMenu();
                 break;
             case 5:
                 //assignment to do show students who attend in more than one course

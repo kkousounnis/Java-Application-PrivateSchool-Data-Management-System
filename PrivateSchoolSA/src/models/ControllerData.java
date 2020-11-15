@@ -66,6 +66,12 @@ public class ControllerData {
             System.out.println(c.assignmentPerCourse.getAssignmentPCourse());
         }
     }
+    public static void showStudentAssignments(Student s) {
+        for (Course c : s.coursesPStudent.getArrCoursesPStudent()) {
+            System.out.println(c.getTitle() + c.getStream());
+            System.out.println(c.assignmentPerCourse.getAssignmentPCourse());
+        }
+    }
 
     public static void showStudentsMultipleCourses() {
         System.out.println("Students in multiple courses");
