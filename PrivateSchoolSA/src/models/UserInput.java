@@ -18,15 +18,15 @@ public class UserInput {
         Student s;
         if (multipleOrStepBystepInput()) {
             System.out.println("Please give me students first name.");
-            p.setFirstName(sc.next());
+            p.setFirstName(checkStringInputLength());
             System.out.println("Please give me students last name.");
-            p.setLastName(sc.next());
+            p.setLastName(checkStringInputLength());
             System.out.println("Please give me students date of birth."
                     + "Type date of birth like this (DD/MM/YYY).");
             s = new Student(p.getFirstName(), p.getLastName());
             s.setDateOfBirth(checkDateInput());
             System.out.println("Please give me the tuition fees of student.");
-            s.setTuitionFees(sc.nextInt());
+            s.setTuitionFees(checkIntInput());
         } else {
             WelcomeScreen.clearConsole();
             System.out.println("Give inputs with this priority \n-> "
@@ -75,9 +75,12 @@ public class UserInput {
             c.setStartDate(ConvertDateLong.convertDate(sc.next()));
             System.out.println("Please give me the ending date of the course");
             c.setEndDate(ConvertDateLong.convertDate(sc.next()));
-        } else {
+        } else {            
             System.out.println("[coursetitle stream (f)/(p) "
                     + "startdate enddate]");
+            System.out.println("Warning for third input."
+                    + "Please type (f) if it is FullTime"
+                    + " or type (p) if it is PartTime");
             String allInputs = sc.nextLine();
             String[] student = allInputs.split(" ");
             t1 = new TitleName(student[0]);
@@ -249,6 +252,57 @@ public class UserInput {
         } while (!correctFormat);
         //i return date of birth as a string and 
         return ConvertDateLong.convertDate(dateOB);
+    }
+
+    public static String checkStringInputLength() {
+        Scanner scan = new Scanner(System.in);
+        boolean correctFormat = false;
+
+        String stringInput = "";
+        do {
+            stringInput = scan.nextLine();
+            String[] stringSplit = stringInput.split(" ");
+
+            if (stringSplit.length == 1) {
+                correctFormat = true;
+            } else {
+                System.out.println("There must be only one word,"
+                        + " spaces aren't allowed.Try again.");
+
+            }
+
+        } while (!correctFormat);
+
+        return stringInput;
+    }
+
+    public static int checkIntInput() {
+        Scanner in = new Scanner(System.in);
+
+        // INPUT VALIDATION FOR INTEGERS AND POSITIVE NUMBERS
+        int input = 0;
+        boolean validationSuccessful = false;
+        do {
+
+            // validate that the input is an integer
+            if (in.hasNextInt() == true) {
+                input = in.nextInt();
+            } else {
+                System.out.print("Please enter an integer value: ");
+                in.next();
+                continue;
+            }
+
+            // validate that the input is positive
+            if (input < 0) {
+                System.out.print("Please print a POSITIVE integer: ");
+                continue;
+            } else {
+                validationSuccessful = true;
+            }
+            System.out.println("The input is: " + input);
+        } while (validationSuccessful == false);
+        return input;
     }
 
 }
