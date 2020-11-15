@@ -1,5 +1,9 @@
 package models;
 
+import controller.WelcomeScreen;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class UserInput {
@@ -17,21 +21,26 @@ public class UserInput {
             p.setFirstName(sc.next());
             System.out.println("Please give me students last name.");
             p.setLastName(sc.next());
-            System.out.println("Please give me students date of birth.");
+            System.out.println("Please give me students date of birth."
+                    + "Type date of birth like this (DD/MM/YYY).");
             s = new Student(p.getFirstName(), p.getLastName());
-            s.setDateOfBirth(ConvertDateLong.convertDate(sc.next()));
+            s.setDateOfBirth(checkDateInput());
             System.out.println("Please give me the tuition fees of student.");
             s.setTuitionFees(sc.nextInt());
-
         } else {
-
-            System.out.println("[firsname lastname dateofbirth tuitionfees]");
+            WelcomeScreen.clearConsole();
+            System.out.println("Give inputs with this priority \n-> "
+                    + "[firsname lastname (DD/MM/YYY) tuitionfees]:");
+            System.out.println("Warning in third input below please"
+                    + " enter DoB like this (DD/MM/YYY)\n");
             String allInputs = sc.nextLine();
             String[] student = allInputs.split(" ");
             p.setFirstName(student[0]);
             p.setLastName(student[1]);
             s = new Student(p.getFirstName(), p.getLastName());
-            s.setDateOfBirth(ConvertDateLong.convertDate(student[2]));
+
+            s.setDateOfBirth(checkMultipleDateInput(student[2]));
+            //s.setDateOfBirth(ConvertDateLong.convertDate(student[2]));
             s.setTuitionFees(Integer.parseInt(student[3]));
 
         }
@@ -39,11 +48,9 @@ public class UserInput {
         ControllerData.showCourses();
         System.out.println("Please tell me to which course"
                 + " will the student attend");
-         int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
+        int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
         ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1), s);
         ControllerData.setCoursesPStudent(s, AddDataLists.getArrCourse().get(courseIndex - 1));
-
-       
 
     }
 
@@ -197,4 +204,51 @@ public class UserInput {
         } while (!catchexception);
         return choice;
     }
+
+    public static long checkDateInput() {
+        Scanner scan = new Scanner(System.in);
+        boolean correctFormat = false;
+        String dateOB = "";
+        do {
+            System.out.println(" please enter DoB like this (DD/MM/YYY)");
+            dateOB = scan.next();
+            try {
+                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateOB);
+                //if date hase a correct format the program shall continue
+                correctFormat = true;
+
+            } catch (ParseException e) {
+
+                correctFormat = false;
+            }
+        } while (!correctFormat);
+        //i return date of birth as a string and 
+        return ConvertDateLong.convertDate(dateOB);
+    }
+
+    public static long checkMultipleDateInput(String dateOfBirth) {
+        Scanner scan = new Scanner(System.in);
+        boolean correctFormat = false;
+        String dateOB = dateOfBirth;
+        boolean firstTimePass = false;
+        do {
+
+            if (firstTimePass == true) {
+                System.out.println(" please enter DoB like this (DD/MM/YYY)");
+                dateOB = scan.next();
+            }
+            try {
+                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateOB);
+                //if date hase a correct format the program shall continue
+                correctFormat = true;
+
+            } catch (ParseException e) {
+                firstTimePass = true;
+                correctFormat = false;
+            }
+        } while (!correctFormat);
+        //i return date of birth as a string and 
+        return ConvertDateLong.convertDate(dateOB);
+    }
+
 }
