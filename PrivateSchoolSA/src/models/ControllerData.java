@@ -41,6 +41,7 @@ public class ControllerData {
     public static void setAssignmentsPCourse(Course c, Assignment a) {
         c.assignmentPerCourse.addAssignmentPCourse(a);
     }
+
     public static void setCoursesPStudent(Student s, Course c) {
         s.coursesPStudent.AddStudentsPCourse(c);
     }
@@ -59,15 +60,23 @@ public class ControllerData {
         }
     }
 
-    public static void showAssignmentPCourse() {
+    public static void showAssignmentsPCourse() {
         for (Course c : AddDataLists.getArrCourse()) {
             System.out.println(c.getTitle() + c.getStream());
             System.out.println(c.assignmentPerCourse.getAssignmentPCourse());
         }
     }
-    
-    public static void locateStudentMultipleCourses(){
-        
+
+    public static void showStudentsMultipleCourses() {
+        System.out.println("Students in multiple courses");
+        for (Student student : AddDataLists.getArrStudent()) {
+            if (student.coursesPStudent.getArrCoursesPStudent().size() > 1) {
+                System.out.println(student);
+                System.out.println("Attends the courses below:");
+                System.out.println(student.coursesPStudent.getArrCoursesPStudent());
+            }
+        }
+
     }
 
 }

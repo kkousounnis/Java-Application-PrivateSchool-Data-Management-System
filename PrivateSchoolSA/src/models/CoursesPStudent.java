@@ -21,6 +21,7 @@ public class CoursesPStudent {
     }
 
     public void AddStudentsPCourse(Course c) {
+        //arrCoursesPStudent = new ArrayList<>();
         this.arrCoursesPStudent.add(c);
     }
 

@@ -1,26 +1,21 @@
 package models;
 
+public class Student extends Person {
 
-import privateschool.*;
-import java.util.Date;
-
-public class Student extends Person{
-    
     private long dateOfBirth;
-    private int tuitionFees;    
+    private int tuitionFees;
     public CoursesPStudent coursesPStudent;
-    
+
     Student(String firstName, String lastName) {
         super(firstName, lastName);
+        this.coursesPStudent = new CoursesPStudent();
     }
-
-    
 
     Student(String firstName, String lastName, long dateOfBirth, int tuitionFees) {
         super(firstName, lastName);
         this.dateOfBirth = dateOfBirth;
-        this.tuitionFees = tuitionFees;        
-        coursesPStudent = new CoursesPStudent();
+        this.tuitionFees = tuitionFees;
+        this.coursesPStudent = new CoursesPStudent();
     }
 
     public long getDateOfBirth() {
@@ -41,7 +36,7 @@ public class Student extends Person{
 
     @Override
     public String toString() {
-        return "Student{" + "person="+super.getFirstName()+super.getLastName()
+        return "Student{" + "person=" + super.getFirstName() + super.getLastName()
                 + ", dateOfBirth=" + ConvertDateLong.convertLong(dateOfBirth)
                 + ", tuitionFees=" + tuitionFees + '}';
     }

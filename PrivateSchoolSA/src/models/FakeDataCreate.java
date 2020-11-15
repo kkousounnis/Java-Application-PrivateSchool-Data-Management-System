@@ -115,11 +115,70 @@ public class FakeDataCreate {
 
         //----------------------
         //Set Students per Course
+        //student1
+        ControllerData.setStudentsPCourse(c1, s1);
+        ControllerData.setCoursesPStudent(s1, c1);
+        
+        ControllerData.setStudentsPCourse(c2, s1);
+        ControllerData.setCoursesPStudent(s1, c2);
+        
+        ControllerData.setStudentsPCourse(c3, s1);
+        ControllerData.setCoursesPStudent(s1, c3);
+        
+        //student2
         ControllerData.setStudentsPCourse(c1, s2);
         ControllerData.setCoursesPStudent(s2, c1);
         
-        ControllerData.setStudentsPCourse(c1, s3);
-        ControllerData.setCoursesPStudent(s3, c1);
+        ControllerData.setStudentsPCourse(c3, s2);
+        ControllerData.setCoursesPStudent(s2, c3);
+        
+        //student3
+        ControllerData.setStudentsPCourse(c4, s3);
+        ControllerData.setCoursesPStudent(s3, c4);
+        
+        ControllerData.setStudentsPCourse(c2, s3);
+        ControllerData.setCoursesPStudent(s2, c2);
+        
+        //student4
+        ControllerData.setStudentsPCourse(c5, s4);
+        ControllerData.setCoursesPStudent(s4, c5);
+        
+        ControllerData.setStudentsPCourse(c5, s4);
+        ControllerData.setCoursesPStudent(s4, c5);
+        
+        //student5
+        ControllerData.setStudentsPCourse(c6, s5);
+        ControllerData.setCoursesPStudent(s5, c6);
+        
+        //student6
+        ControllerData.setStudentsPCourse(c7, s6);
+        ControllerData.setCoursesPStudent(s6, c7);
+        
+        ControllerData.setStudentsPCourse(c8, s6);
+        ControllerData.setCoursesPStudent(s6, c8);
+        
+        //student7
+        ControllerData.setStudentsPCourse(c3, s7);
+        ControllerData.setCoursesPStudent(s7, c3);
+        
+        ControllerData.setStudentsPCourse(c8, s7);
+        ControllerData.setCoursesPStudent(s7, c8);
+        
+        //student8
+        ControllerData.setStudentsPCourse(c4, s8);
+        ControllerData.setCoursesPStudent(s8, c4);
+        
+        //student9
+        ControllerData.setStudentsPCourse(c5, s9);
+        ControllerData.setCoursesPStudent(s2, c5);
+        
+        //student10
+        ControllerData.setStudentsPCourse(c7, s10);
+        ControllerData.setCoursesPStudent(s10, c7);
+        
+        
+        
+        
 
         //Set Trainers per Course
         ControllerData.setTrainersPCourse(c4, t5);

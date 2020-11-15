@@ -39,7 +39,11 @@ public class UserInput {
         ControllerData.showCourses();
         System.out.println("Please tell me to which course"
                 + " will the student attend");
-        ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(sc.nextInt() - 1), s);
+         int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
+        ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1), s);
+        ControllerData.setCoursesPStudent(s, AddDataLists.getArrCourse().get(courseIndex - 1));
+
+       
 
     }
 
@@ -132,11 +136,11 @@ public class UserInput {
             title1 = new TitleName(student[0]);
             a = new Assignment(title1);
             a.setSubDateTime(ConvertDateLong.convertDate(student[1]));
-           String s="";
-           for (int i = 2; i < student.length; i++) {
-               s=s+" "+student[i];
-           }
-           
+            String s = "";
+            for (int i = 2; i < student.length; i++) {
+                s = s + " " + student[i];
+            }
+
             a.setDescription(s);
 
         }

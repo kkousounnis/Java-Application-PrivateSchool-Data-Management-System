@@ -2,16 +2,16 @@ package models;
 
 import java.util.ArrayList;
 
-public class AssignmentPCourse {
+public class AssignmentsPCourse {
 
     private Course course;
     private final ArrayList<Assignment> assignmentPCourse;
 
-    AssignmentPCourse() {
+    AssignmentsPCourse() {
         assignmentPCourse = new ArrayList<>();
     }
 
-    AssignmentPCourse(Course course) {
+    AssignmentsPCourse(Course course) {
         this.course = course;
         assignmentPCourse = new ArrayList<>();
     }

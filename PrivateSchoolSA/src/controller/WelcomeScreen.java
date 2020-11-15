@@ -79,7 +79,7 @@ public class WelcomeScreen {
                 courseMenu();
                 break;
             case 5:
-                ControllerData.showAssignmentPCourse();
+                ControllerData.showAssignmentsPCourse();
                 courseMenu();
                 break;
             case 6:
@@ -114,6 +114,7 @@ public class WelcomeScreen {
                 int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
                 ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
                         AddDataLists.getArrStudent().get(studentIndex - 1));
+                ControllerData.setCoursesPStudent(AddDataLists.getArrStudent().get(studentIndex - 1), AddDataLists.getArrCourse().get(courseIndex - 1));
                 studentMenu();
                 break;
             case 4:
@@ -121,7 +122,8 @@ public class WelcomeScreen {
                 break;
             case 5:
                 //assignment to do show students who attend in more than one course
-                
+                ControllerData.showStudentsMultipleCourses(); 
+                studentMenu();
                 break;
             case 6:
                 clearConsole();

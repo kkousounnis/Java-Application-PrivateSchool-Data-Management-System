@@ -9,10 +9,13 @@ public class Course {
     private long endDate;
     public StudentsPCourse studentsPerCourse;
     public TrainersPCourse trainerPerCourse;
-    public AssignmentPCourse assignmentPerCourse;
+    public AssignmentsPCourse assignmentPerCourse;
 
     Course(TitleName title) {
         this.title = title;
+        this.studentsPerCourse = new StudentsPCourse();
+        this.trainerPerCourse = new TrainersPCourse();
+        this.assignmentPerCourse = new AssignmentsPCourse();
     }
 
     Course(TitleName title, String stream, boolean type,
@@ -24,7 +27,7 @@ public class Course {
         this.endDate = endDate;
         this.studentsPerCourse = new StudentsPCourse();
         this.trainerPerCourse = new TrainersPCourse();
-        this.assignmentPerCourse = new AssignmentPCourse();
+        this.assignmentPerCourse = new AssignmentsPCourse();
 
     }
 
