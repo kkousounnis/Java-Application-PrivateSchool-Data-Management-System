@@ -252,6 +252,29 @@ public class UserInput {
         //i return date of birth as a string and 
         return ConvertDateLong.convertDate(dateOB);
     }
+    public static long askUserDateToShowStudentsWeekAssignments() {
+        Scanner scan = new Scanner(System.in);
+        boolean correctFormat = false;
+        String dateOB = "";
+        do {
+            System.out.println(" please enter the date you wish to see "
+                    + "all relevant student assignments"
+                    + "\n The must be typed like this (DD/MM/YYY)");
+            dateOB = scan.next();
+            try {
+                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateOB);
+                //if date hase a correct format the program shall continue
+                correctFormat = true;
+
+            } catch (ParseException e) {
+
+                correctFormat = false;
+            }
+        } while (!correctFormat);
+        //i return date of birth as a string and 
+        return ConvertDateLong.convertDate(dateOB);
+    }
+    
 
     public static long checkMultipleDateInput(String dateOfBirth) {
         Scanner scan = new Scanner(System.in);

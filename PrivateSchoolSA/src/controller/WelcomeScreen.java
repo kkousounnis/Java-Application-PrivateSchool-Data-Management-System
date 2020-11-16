@@ -245,6 +245,8 @@ public class WelcomeScreen {
             case 4:
             //to do
                  clearConsole();
+                 //ask user with a method to give with scanner date long
+                 UserInput.askUserDateToShowStudentsWeekAssignments();
                  assignmentMenu();
                 break;
             case 5:
@@ -321,7 +323,7 @@ public class WelcomeScreen {
         System.out.println("1: Create manually assignment.");
         System.out.println("2: Show all assignments.");
         System.out.println("3: Choose course for assignment.");
-        System.out.println("4: Show students with pending submisions");
+        System.out.println("4: Give date and show students with pending assignments.");
         System.out.println("5: Return.");
 
     }
