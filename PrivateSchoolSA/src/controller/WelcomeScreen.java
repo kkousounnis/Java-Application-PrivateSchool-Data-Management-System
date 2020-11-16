@@ -43,10 +43,10 @@ public class WelcomeScreen {
                 studentMenu();
                 break;
             case 3:
-                trainerMenu(); 
+                trainerMenu();
                 break;
             case 4:
-                assignmentMenu();  
+                assignmentMenu();
                 break;
             case 5:
                 clearConsole();
@@ -93,6 +93,8 @@ public class WelcomeScreen {
     public void studentMenu() {
         showStudentMenu();
         //i assigned to 3 because i only 1,2,3,4,5,6 choices 
+        int courseIndex;
+        int studentIndex;
         this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
@@ -104,32 +106,42 @@ public class WelcomeScreen {
                 studentMenu();
                 break;
             case 3:
-                ControllerData.showStudents();
-                System.out.println("Please specify student "
-                        + " from List by typing number");
-                int studentIndex = checkIntegerInput(AddDataLists.getArrStudent().size());
-                ControllerData.showCourses();
-                System.out.println("Please tell me to which course"
-                        + " will the student attend please type number of course.");
-                int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
-                ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
-                        AddDataLists.getArrStudent().get(studentIndex - 1));
-                ControllerData.setCoursesPStudent(AddDataLists.getArrStudent().get(studentIndex - 1), AddDataLists.getArrCourse().get(courseIndex - 1));
+                if (AddDataLists.getArrCourse().size() > 0) {
+                    ControllerData.showStudents();
+                    System.out.println("Please specify student "
+                            + " from List by typing number");
+                    studentIndex = checkIntegerInput(AddDataLists.getArrStudent().size());
+                    ControllerData.showCourses();
+                    System.out.println("Please tell me to which course"
+                            + " will the student attend please type number of course.");
+                    courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
+                    ControllerData.setStudentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
+                            AddDataLists.getArrStudent().get(studentIndex - 1));
+                    ControllerData.setCoursesPStudent(AddDataLists.getArrStudent().get(studentIndex - 1), AddDataLists.getArrCourse().get(courseIndex - 1));
+                } else {
+                    System.out.println("\n---No courses have been assigned yet.---\n");
+                }
                 studentMenu();
                 break;
             case 4:
                 //assignment to do show student assignments
                 clearConsole();
-                ControllerData.showStudents();
-                System.out.println("Please specify student "
-                        + " from List by typing number");
-                studentIndex = checkIntegerInput(AddDataLists.getArrStudent().size());                
-                ControllerData.showStudentAssignments(AddDataLists.getArrStudent().get(studentIndex - 1));               
+                if (AddDataLists.getArrStudent().size() > 0) {
+                    ControllerData.showStudents();
+                    System.out.println("Please specify student "
+                            + " from List by typing number");
+                    studentIndex = checkIntegerInput(AddDataLists.getArrStudent().size());
+                    ControllerData.showStudentAssignments(AddDataLists.getArrStudent().get(studentIndex - 1));
+                } else {
+                    System.out.println("\n---No student list"
+                            + " have been assigned yet.---\n");
+                }
                 studentMenu();
                 break;
+
             case 5:
                 //assignment to do show students who attend in more than one course
-                ControllerData.showStudentsMultipleCourses(); 
+                ControllerData.showStudentsMultipleCourses();
                 studentMenu();
                 break;
             case 6:
@@ -139,7 +151,7 @@ public class WelcomeScreen {
         }
 
     }
-    
+
     public void trainerMenu() {
         showTrainerMenu();
         //i assigned to 3 because i only 1,2,3,4,5,6 choices 
@@ -154,25 +166,30 @@ public class WelcomeScreen {
                 trainerMenu();
                 break;
             case 3:
-                ControllerData.showTrainers();
-                System.out.println("Please specify trainer "
-                        + " from List by typing number");
-                int trainerIndex = checkIntegerInput(AddDataLists.getArrTrainer().size());
-                ControllerData.showCourses();
-                System.out.println("Please tell me to which course"
-                        + " will the trainer attend please type number of course.");
-                int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
-                ControllerData.setTrainersPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
-                        AddDataLists.getArrTrainer().get(trainerIndex - 1));
+                if (AddDataLists.getArrCourse().size() > 0) {
+                    ControllerData.showTrainers();
+                    System.out.println("Please specify trainer "
+                            + " from List by typing number");
+                    int trainerIndex = checkIntegerInput(AddDataLists.getArrTrainer().size());
+                    ControllerData.showCourses();
+                    System.out.println("Please tell me to which course"
+                            + " will the trainer attend please type number of course.");
+                    int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
+                    ControllerData.setTrainersPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
+                            AddDataLists.getArrTrainer().get(trainerIndex - 1));
+                } else {
+                    System.out.println("\n---No courses have been assigned yet.---\n");
+                }
                 trainerMenu();
                 break;
             case 4:
                 clearConsole();
                 mainMenu();
-                break;      
+                break;
         }
 
     }
+
     public void assignmentMenu() {
         showAssignmentMenu();
         //i assigned to 3 because i only 1,2,3,4 choices 
@@ -187,24 +204,28 @@ public class WelcomeScreen {
                 assignmentMenu();
                 break;
             case 3:
-                ControllerData.showAssignments();
-                System.out.println("Please specify trainer "
-                        + " from List by typing number");
-                int assignmentIndex = checkIntegerInput(AddDataLists.getArrAssignment().size());
-                ControllerData.showCourses();
-                System.out.println("Please tell me to which course"
-                        + " will the trainer attend please type number of course.");
-                int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
-                ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
-                        AddDataLists.getArrAssignment().get(assignmentIndex - 1));
+                if (AddDataLists.getArrCourse().size() > 0) {
+                    ControllerData.showAssignments();
+                    System.out.println("Please specify trainer "
+                            + " from List by typing number");
+                    int assignmentIndex = checkIntegerInput(AddDataLists.getArrAssignment().size());
+                    ControllerData.showCourses();
+                    System.out.println("Please tell me to which course"
+                            + " will the trainer attend please type number of course.");
+                    int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
+                    ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
+                            AddDataLists.getArrAssignment().get(assignmentIndex - 1));
+                } else {
+                    System.out.println("\n---No courses have been assigned yet.---\n");
+                }
                 assignmentMenu();
                 break;
             case 4:
-                //to do
+            //to do
             case 5:
                 clearConsole();
                 mainMenu();
-                break;      
+                break;
         }
 
     }
