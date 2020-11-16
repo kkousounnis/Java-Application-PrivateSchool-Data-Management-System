@@ -1,5 +1,7 @@
 package models;
 
+import controller.WelcomeScreen;
+
 public class ControllerData {
 
     ControllerData() {
@@ -7,6 +9,7 @@ public class ControllerData {
     }
 
     public static void showStudents() {
+        WelcomeScreen.clearConsole();
         System.out.println("---Students---");
         for (int i = 0; i < AddDataLists.getArrStudent().size(); i++) {
             System.out.println((i + 1) + ": " + AddDataLists.getArrStudent().get(i));
@@ -14,6 +17,7 @@ public class ControllerData {
     }
 
     public static void showCourses() {
+        WelcomeScreen.clearConsole();
         System.out.println("---Courses---");
         for (int i = 0; i < AddDataLists.getArrCourse().size(); i++) {
             System.out.println((i + 1) + ": " + AddDataLists.getArrCourse().get(i));
@@ -21,6 +25,7 @@ public class ControllerData {
     }
 
     public static void showTrainers() {
+        WelcomeScreen.clearConsole();
         System.out.println("Trainers");
         for (int i = 0; i < AddDataLists.getArrTrainer().size(); i++) {
             System.out.println((i + 1) + ": " + AddDataLists.getArrTrainer().get(i));
@@ -28,6 +33,7 @@ public class ControllerData {
     }
 
     public static void showAssignments() {
+        WelcomeScreen.clearConsole();
         System.out.println("Assignments");
         for (int i = 0; i < AddDataLists.getArrAssignment().size(); i++) {
             System.out.println((i + 1) + ": " + AddDataLists.getArrAssignment().get(i));
@@ -51,6 +57,7 @@ public class ControllerData {
     }
 
     public static void showStudentsPCourse() {
+        WelcomeScreen.clearConsole();
         System.out.println("---Students Per Course---");
         for (Course c : AddDataLists.getArrCourse()) {
             System.out.println(c.getTitle() + c.getStream());
@@ -59,6 +66,7 @@ public class ControllerData {
     }
 
     public static void showTrainersPCourse() {
+        WelcomeScreen.clearConsole();
         System.out.println("---Trainer Per Course---");
         for (Course c : AddDataLists.getArrCourse()) {
             System.out.println(c.getTitle() + c.getStream());
@@ -67,6 +75,7 @@ public class ControllerData {
     }
 
     public static void showAssignmentsPCourse() {
+        WelcomeScreen.clearConsole();
         System.out.println("---Assignments Per Course---");
         for (Course c : AddDataLists.getArrCourse()) {
             System.out.println(c.getTitle() + c.getStream());
@@ -74,16 +83,18 @@ public class ControllerData {
         }
     }
     public static void showStudentAssignments(Student s) {
+        WelcomeScreen.clearConsole();
         System.out.println("---Students Per Assignment---");
+        System.out.println(s);
         for (Course c : s.coursesPStudent.getArrCoursesPStudent()) {
-            System.out.println(c.getTitle() + c.getStream());
+            System.out.println(c);
             System.out.println(c.assignmentPerCourse.getAssignmentPCourse());
         }
     }
 
     public static void showStudentsMultipleCourses() {
-        System.out.println("Students who  Attend Multiple Courses");
-        System.out.println("Students in multiple courses");
+        WelcomeScreen.clearConsole();
+        System.out.println("Students who Attend Multiple Courses");
         for (Student student : AddDataLists.getArrStudent()) {
             if (student.coursesPStudent.getArrCoursesPStudent().size() > 1) {
                 System.out.println(student);

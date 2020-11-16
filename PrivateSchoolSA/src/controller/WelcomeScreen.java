@@ -14,6 +14,7 @@ public class WelcomeScreen {
     }
 
     public void Menu() {
+        clearConsole();
         showWelcomeMenu();
         //i assigned to 3 because i only 1,2,3 choices 
         this.choice = checkIntegerInput(3);
@@ -32,20 +33,25 @@ public class WelcomeScreen {
     }
 
     public void mainMenu() {
+        clearConsole();
         showMainMenu();
         //i assigned to 3 because i only 1,2,3,4,5 choices 
         this.choice = checkIntegerInput(5);
         switch (this.choice) {
             case 1:
+                clearConsole();
                 courseMenu();
                 break;
             case 2:
+                clearConsole();
                 studentMenu();
                 break;
             case 3:
+                clearConsole();
                 trainerMenu();
                 break;
             case 4:
+                clearConsole();
                 assignmentMenu();
                 break;
             case 5:
@@ -58,6 +64,7 @@ public class WelcomeScreen {
     }
 
     public void courseMenu() {
+        clearConsole();
         showCourseMenu();
         //i assigned to 3 because i only 1,2,3,4,5,6 choices 
         this.choice = checkIntegerInput(6);
@@ -91,6 +98,7 @@ public class WelcomeScreen {
     }
 
     public void studentMenu() {
+
         showStudentMenu();
         //i assigned to 3 because i only 1,2,3,4,5,6 choices 
         int courseIndex;
@@ -98,14 +106,17 @@ public class WelcomeScreen {
         this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
+                clearConsole();
                 UserInput.manualStudentsLists();
                 studentMenu();
                 break;
             case 2:
+                clearConsole();
                 ControllerData.showStudents();
                 studentMenu();
                 break;
             case 3:
+                clearConsole();
                 if (AddDataLists.getArrCourse().size() > 0) {
                     ControllerData.showStudents();
                     System.out.println("Please specify student "
@@ -124,12 +135,14 @@ public class WelcomeScreen {
                 studentMenu();
                 break;
             case 4:
+                clearConsole();
                 //assignment to do show student assignments
                 clearConsole();
                 if (AddDataLists.getArrStudent().size() > 0) {
                     ControllerData.showStudents();
-                    System.out.println("Please specify student "
-                            + " from List by typing number");
+                    System.out.println("Please specify student from List"
+                            + "  in order to see his assignments "
+                            + "by typing number");
                     studentIndex = checkIntegerInput(AddDataLists.getArrStudent().size());
                     ControllerData.showStudentAssignments(AddDataLists.getArrStudent().get(studentIndex - 1));
                 } else {
@@ -140,8 +153,9 @@ public class WelcomeScreen {
                 break;
 
             case 5:
-                //assignment to do show students who attend in more than one course
-                ControllerData.showStudentsMultipleCourses();
+                clearConsole();
+                //assignment to do show students who attend in more than one course                
+                ControllerData.showStudentsMultipleCourses();                
                 studentMenu();
                 break;
             case 6:
@@ -153,19 +167,23 @@ public class WelcomeScreen {
     }
 
     public void trainerMenu() {
+
         showTrainerMenu();
         //i assigned to 3 because i only 1,2,3,4,5,6 choices 
         this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
+                clearConsole();
                 UserInput.manualTrainer();
                 trainerMenu();
                 break;
             case 2:
+                clearConsole();
                 ControllerData.showTrainers();
                 trainerMenu();
                 break;
             case 3:
+                clearConsole();
                 if (AddDataLists.getArrCourse().size() > 0) {
                     ControllerData.showTrainers();
                     System.out.println("Please specify trainer "
@@ -182,7 +200,7 @@ public class WelcomeScreen {
                 }
                 trainerMenu();
                 break;
-            case 4:
+            case 4:                
                 clearConsole();
                 mainMenu();
                 break;
@@ -191,19 +209,23 @@ public class WelcomeScreen {
     }
 
     public void assignmentMenu() {
+
         showAssignmentMenu();
         //i assigned to 3 because i only 1,2,3,4 choices 
         this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
+                clearConsole();
                 UserInput.manualAssignment();
                 assignmentMenu();
                 break;
             case 2:
+                clearConsole();
                 ControllerData.showAssignments();
                 assignmentMenu();
                 break;
             case 3:
+                clearConsole();
                 if (AddDataLists.getArrCourse().size() > 0) {
                     ControllerData.showAssignments();
                     System.out.println("Please specify trainer "
@@ -222,6 +244,9 @@ public class WelcomeScreen {
                 break;
             case 4:
             //to do
+                 clearConsole();
+                 assignmentMenu();
+                break;
             case 5:
                 clearConsole();
                 mainMenu();
@@ -273,7 +298,7 @@ public class WelcomeScreen {
         System.out.println("       Student Menu      ");
         System.out.println("Please choose how would you like to proceed");
         System.out.println("1: Create Manually student.");
-        System.out.println("2: Show all student.");
+        System.out.println("2: Show all students.");
         System.out.println("3: Choose student which lessons will attend.");
         System.out.println("4: Show student assignments");
         System.out.println("5: Show students who attend in"
@@ -286,7 +311,7 @@ public class WelcomeScreen {
         System.out.println("Please choos how would you like to proceed.");
         System.out.println("1: Create Manually trainer.");
         System.out.println("2: Show all trainers");
-        System.out.println("3: Choose trainer which lesson teaches.");
+        System.out.println("3: Choose trainer which course teaches.");
         System.out.println("4: Return.");
     }
 
