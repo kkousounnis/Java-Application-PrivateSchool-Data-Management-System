@@ -1,8 +1,6 @@
 package models;
 
-import models.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class AddDataLists {
 

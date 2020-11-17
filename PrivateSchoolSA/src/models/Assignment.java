@@ -1,9 +1,5 @@
 package models;
 
-
-import privateschool.*;
-import java.util.Date;
-
 public class Assignment {
 
     private TitleName title;
