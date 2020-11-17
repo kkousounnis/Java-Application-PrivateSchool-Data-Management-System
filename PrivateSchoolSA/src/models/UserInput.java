@@ -90,9 +90,9 @@ public class UserInput {
             System.out.println("Please give me the ending date of the course");
             c.setEndDate(checkDateInput());
         } else {
-            String[] course; 
+            String[] course;
             WelcomeScreen.clearConsole();
-            do{
+            do {
                 System.out.println("[coursetitle stream (f)/(p) "
                         + "startdate enddate]");
                 System.out.println("Warning there must be absolutely"
@@ -110,7 +110,7 @@ public class UserInput {
             c.setType(checkPartTimeFullTimeInput(course[2].charAt(0)));
             c.setStartDate(checkMultipleDateInput(course[3]));
             c.setEndDate(checkMultipleDateInput(course[4]));
-            
+
         }
 
         AddDataLists.AddCourseList(c);
@@ -174,7 +174,7 @@ public class UserInput {
         } else {
             String[] assignment;
             do {
-                
+
                 System.out.print("\nType like this ->");
                 System.out.println("[assignmenttitle assignmentdate"
                         + " description(sentence) ]");
@@ -399,6 +399,7 @@ public class UserInput {
             // validate that the input is an integer
             try {
                 Integer.parseInt(integerUserInput);
+                validationSuccessful = true;
             } catch (NumberFormatException e) {
                 System.out.print("Wrong input tuition fees. Please enter"
                         + " a correct integer value for tuition"
@@ -406,7 +407,7 @@ public class UserInput {
                 integerUserInput = String.valueOf(checkIntInput());
                 validationSuccessful = true;
             }
-            
+
             System.out.println("The input is: " + Integer.parseInt(integerUserInput));
         } while (validationSuccessful == false);
         return Integer.parseInt(integerUserInput);
