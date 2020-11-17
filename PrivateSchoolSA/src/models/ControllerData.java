@@ -98,7 +98,7 @@ public class ControllerData {
 
     public static void showStudentsMultipleCourses() {
         WelcomeScreen.clearConsole();
-        System.out.println("Students who Attend Multiple Courses");
+        System.out.println("---Students who Attend Multiple Courses---");
         for (Student student : AddDataLists.getArrStudent()) {
             if (student.coursesPStudent.getArrCoursesPStudent().size() > 1) {
                 System.out.println(student);

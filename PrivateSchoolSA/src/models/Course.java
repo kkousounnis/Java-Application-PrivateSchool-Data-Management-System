@@ -73,7 +73,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" + "title=" + title
+        return "Course{" + " title=" + title
                 + ", stream=" + stream
                 + ", type=" + checkType(type)
                 + ", startDate=" + ConvertDateLong.convertLong(startDate)

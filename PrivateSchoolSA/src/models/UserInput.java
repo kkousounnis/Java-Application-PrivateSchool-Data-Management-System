@@ -36,6 +36,9 @@ public class UserInput {
             do {
                 System.out.println("Give inputs with this priority \n-> "
                         + "[firsname lastname (DD/MM/YYY) tuitionfees]:");
+                System.out.println("Warning there must be absolutely"
+                        + " four inputs if not the system will"
+                        + " ask you to retype all four inputs");
                 System.out.println("Warning in third input below please"
                         + " enter DoB like this (DD/MM/YYY)\n");
 
@@ -47,7 +50,7 @@ public class UserInput {
             s = new Student(p.getFirstName(), p.getLastName());
 
             s.setDateOfBirth(checkMultipleDateInput(student[2]));
-            s.setTuitionFees(Integer.parseInt(student[3]));
+            s.setTuitionFees(checkMultimpleIntInput(student[3]));
 
         }
         AddDataLists.AddStudentsLists(s);
@@ -87,20 +90,27 @@ public class UserInput {
             System.out.println("Please give me the ending date of the course");
             c.setEndDate(checkDateInput());
         } else {
+            String[] course; 
             WelcomeScreen.clearConsole();
-            System.out.println("[coursetitle stream (f)/(p) "
-                    + "startdate enddate]");
-            System.out.println("Warning for third input."
-                    + "Please type (f) if it is FullTime"
-                    + " or type (p) if it is PartTime");
-            String allInputs = sc.nextLine();
-            String[] student = allInputs.split(" ");
-            t1 = new TitleName(student[0]);
+            do{
+                System.out.println("[coursetitle stream (f)/(p) "
+                        + "startdate enddate]");
+                System.out.println("Warning there must be absolutely"
+                        + " five inputs if not the system will"
+                        + " ask you to retype all five inputs");
+                System.out.println("Warning for third input."
+                        + "Please type (f) if it is FullTime"
+                        + " or type (p) if it is PartTime");
+                String allInputs = sc.nextLine();
+                course = allInputs.split(" ");
+            } while (course.length != 5);
+            t1 = new TitleName(course[0]);
             c = new Course(t1);
-            c.setStream(student[1]);
-            c.setType(checkPartTimeFullTimeInput(student[2].charAt(0)));
-            c.setStartDate(checkMultipleDateInput(student[3]));
-            c.setEndDate(checkMultipleDateInput(student[4]));
+            c.setStream(course[1]);
+            c.setType(checkPartTimeFullTimeInput(course[2].charAt(0)));
+            c.setStartDate(checkMultipleDateInput(course[3]));
+            c.setEndDate(checkMultipleDateInput(course[4]));
+            
         }
 
         AddDataLists.AddCourseList(c);
@@ -124,6 +134,9 @@ public class UserInput {
             String[] trainer;
             do {
                 System.out.println("[firstname lastname subject]");
+                System.out.println("Warning there must be absolutely"
+                        + " three inputs if not the system will"
+                        + " ask you to retype all three inputs");
                 String allInputs = sc.nextLine();
                 trainer = allInputs.split(" ");
             } while (trainer.length != 3);
@@ -161,7 +174,21 @@ public class UserInput {
         } else {
             String[] assignment;
             do {
-                System.out.println("[assignmenttitle assignmentdate description ]");
+                
+                System.out.print("\nType like this ->");
+                System.out.println("[assignmenttitle assignmentdate"
+                        + " description(sentence) ]");
+                System.out.println("");
+                System.out.println("Warning there must be "
+                        + " three inputs but in third input"
+                        + " we can have a sentence consisted of 12 words.\n"
+                        + "So you are allowed to type maximum 15 words.\n"
+                        + "If they are more than fifteen words the system will"
+                        + " ask you to retype all three inputs consisted of"
+                        + " fifiteen words.\n"
+                        + "For exampe type: --> Assignment1 01/01/2021"
+                        + " Create a simple java program that prints"
+                        + " hello world.");
                 String allInputs = sc.nextLine();
                 assignment = allInputs.split(" ");
             } while (assignment.length > 15);
@@ -239,7 +266,7 @@ public class UserInput {
         boolean correctFormat = false;
         String dateOB = "";
         do {
-            System.out.println(" please enter like this (DD/MM/YYY)");
+            System.out.println(" please enter date like this (DD/MM/YYY)");
             dateOB = scan.next();
             try {
                 Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateOB);
@@ -268,7 +295,7 @@ public class UserInput {
                     + "\nDate must be typed like this (DD/MM/YYY)");
             stringdate = scan.next();
             try {
-                formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 date = new SimpleDateFormat("dd/MM/yyyy").parse(stringdate);
                 localDate = LocalDate.parse(stringdate, formatter);
 
@@ -284,7 +311,6 @@ public class UserInput {
 
         return localDate;
     }
-    
 
     public static long checkMultipleDateInput(String dateOfBirth) {
         Scanner scan = new Scanner(System.in);
@@ -294,7 +320,7 @@ public class UserInput {
         do {
 
             if (firstTimePass == true) {
-                System.out.println(" please enter like this (DD/MM/YYY)");
+                System.out.println(" please enter date like this (DD/MM/YYY)");
                 dateOB = scan.next();
             }
             try {
@@ -363,6 +389,29 @@ public class UserInput {
         return input;
     }
 
+    public static int checkMultimpleIntInput(String integerUserInput) {
+        Scanner in = new Scanner(System.in);
+
+        // INPUT VALIDATION FOR INTEGERS AND POSITIVE NUMBERS
+        boolean validationSuccessful = false;
+        do {
+
+            // validate that the input is an integer
+            try {
+                Integer.parseInt(integerUserInput);
+            } catch (NumberFormatException e) {
+                System.out.print("Wrong input tuition fees. Please enter"
+                        + " a correct integer value for tuition"
+                        + " fees of student: ");
+                integerUserInput = String.valueOf(checkIntInput());
+                validationSuccessful = true;
+            }
+            
+            System.out.println("The input is: " + Integer.parseInt(integerUserInput));
+        } while (validationSuccessful == false);
+        return Integer.parseInt(integerUserInput);
+    }
+
     public static boolean checkPartTimeFullTimeInput(char c) {
         Scanner sc = new Scanner(System.in);
         while (checkInputType(c) == false) {
@@ -377,48 +426,48 @@ public class UserInput {
         LocalDate[] arrayCalendarWeekFromUserDate = new LocalDate[2];
         LocalDate localdate = askUserDateToShowStudentsWeekAssignments();
 
-        switch(localdate.getDayOfWeek()){
+        switch (localdate.getDayOfWeek()) {
             case MONDAY:
-                arrayCalendarWeekFromUserDate[0]=localdate;
-                               
-                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(6);
-                
+                arrayCalendarWeekFromUserDate[0] = localdate;
+
+                arrayCalendarWeekFromUserDate[1] = localdate.plusDays(6);
+
                 break;
             case TUESDAY:
-                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(1);
-                              
-                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(5);
-                
+                arrayCalendarWeekFromUserDate[0] = localdate.minusDays(1);
+
+                arrayCalendarWeekFromUserDate[1] = localdate.plusDays(5);
+
                 break;
             case WEDNESDAY:
-                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(2);
-                               
-                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(4);
-                
+                arrayCalendarWeekFromUserDate[0] = localdate.minusDays(2);
+
+                arrayCalendarWeekFromUserDate[1] = localdate.plusDays(4);
+
                 break;
             case THURSDAY:
-                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(3);
-                               
-                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(3);
-                
+                arrayCalendarWeekFromUserDate[0] = localdate.minusDays(3);
+
+                arrayCalendarWeekFromUserDate[1] = localdate.plusDays(3);
+
                 break;
             case FRIDAY:
-                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(4);
-                
-                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(2);
-                
+                arrayCalendarWeekFromUserDate[0] = localdate.minusDays(4);
+
+                arrayCalendarWeekFromUserDate[1] = localdate.plusDays(2);
+
                 break;
             case SATURDAY:
-                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(5);
-               
-                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(1);
-                
+                arrayCalendarWeekFromUserDate[0] = localdate.minusDays(5);
+
+                arrayCalendarWeekFromUserDate[1] = localdate.plusDays(1);
+
                 break;
             case SUNDAY:
-                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(6);
-                
-                arrayCalendarWeekFromUserDate[1]=localdate;
-                
+                arrayCalendarWeekFromUserDate[0] = localdate.minusDays(6);
+
+                arrayCalendarWeekFromUserDate[1] = localdate;
+
                 break;
         }
 

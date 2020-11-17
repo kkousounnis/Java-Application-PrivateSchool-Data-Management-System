@@ -157,8 +157,21 @@ public class WelcomeScreen {
 
             case 5:
                 clearConsole();
-                //assignment to do show students who attend in more than one course                
-                ControllerData.showStudentsMultipleCourses();
+                 if (AddDataLists.getArrCourse().size() > 1) {
+                    // show students who attend in more than one course                
+                    ControllerData.showStudentsMultipleCourses();
+                    System.out.println("");
+                 }else{
+                     System.out.println("\n---No multiple courses have"
+                             + " been assigned yet.---\n"); 
+                     ControllerData.showCourses();
+                     System.out.println("We must have more than two" 
+                             + " courses assigned.\n");
+                     System.out.println(" PLease go to course menu"
+                             + " and assign more than 1 course.Then go"
+                             + " to student menu and assign students to more"
+                             + " than one course");
+                 }
                 studentMenu();
                 break;
             case 6:
@@ -236,7 +249,7 @@ public class WelcomeScreen {
                     int assignmentIndex = checkIntegerInput(AddDataLists.getArrAssignment().size());
                     ControllerData.showCourses();
                     System.out.println("Please tell me to which course"
-                            + " will the trainer attend please type number of course.");
+                            + " will the assignmetn attend please type number of course.");
                     int courseIndex = checkIntegerInput(AddDataLists.getArrCourse().size());
                     ControllerData.setAssignmentsPCourse(AddDataLists.getArrCourse().get(courseIndex - 1),
                             AddDataLists.getArrAssignment().get(assignmentIndex - 1));
@@ -248,7 +261,11 @@ public class WelcomeScreen {
             case 4:
                 clearConsole();
                 //UserInput.getArrayCalendarWeekFromUserDate();
-                ControllerData.showStudentsAssignmentsRelevantToGivenDate();
+                if (AddDataLists.getArrCourse().size() > 0) {
+                    ControllerData.showStudentsAssignmentsRelevantToGivenDate();
+                }else {
+                    System.out.println("\n---No courses have been assigned yet.---\n");
+                }
                 assignmentMenu();
                 break;
             case 5:

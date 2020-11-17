@@ -36,7 +36,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Student{" + "person=" + super.getFirstName() + super.getLastName()
+        return "Student{" +  super.getFirstName() + super.getLastName()
                 + ", dateOfBirth=" + ConvertDateLong.convertLong(dateOfBirth)
                 + ", tuitionFees=" + tuitionFees + '}';
     }

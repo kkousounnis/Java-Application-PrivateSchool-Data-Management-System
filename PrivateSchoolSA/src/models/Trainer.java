@@ -25,7 +25,7 @@ public class Trainer extends Person {
 
     @Override
     public String toString() {
-        return "Trainer{" + "person="
+        return "Trainer{" 
                 + super.getFirstName() + super.getLastName()
                 + ", subject=" + subject + '}';
     }

@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 public class AddDataLists {
 
-    private static ArrayList<Student> arrStudent = new ArrayList<Student>();
-    private static ArrayList<Trainer> arrTrainer = new ArrayList<Trainer>();
-    private static ArrayList<Course> arrCourse = new ArrayList<Course>();
-    private static ArrayList<Assignment> arrAssignment = new ArrayList<Assignment>();
+    private static final ArrayList<Student> arrStudent = new ArrayList<Student>();
+    private static final ArrayList<Trainer> arrTrainer = new ArrayList<Trainer>();
+    private static final ArrayList<Course> arrCourse = new ArrayList<Course>();
+    private static final ArrayList<Assignment> arrAssignment = new ArrayList<Assignment>();
 
     AddDataLists() {
 
