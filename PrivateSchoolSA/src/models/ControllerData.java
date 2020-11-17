@@ -1,6 +1,7 @@
 package models;
 
 import controller.WelcomeScreen;
+import java.time.LocalDate;
 
 public class ControllerData {
 
@@ -60,7 +61,7 @@ public class ControllerData {
         WelcomeScreen.clearConsole();
         System.out.println("---Students Per Course---");
         for (Course c : AddDataLists.getArrCourse()) {
-            System.out.println(c.getTitle() + c.getStream());
+            System.out.println(c);
             System.out.println(c.studentsPerCourse.getArrStudentsPCourse());
         }
     }
@@ -69,8 +70,9 @@ public class ControllerData {
         WelcomeScreen.clearConsole();
         System.out.println("---Trainer Per Course---");
         for (Course c : AddDataLists.getArrCourse()) {
-            System.out.println(c.getTitle() + c.getStream());
+            System.out.println(c);
             System.out.println(c.trainerPerCourse.getTrainersPCourseList());
+            System.out.println(" ");
         }
     }
 
@@ -78,8 +80,9 @@ public class ControllerData {
         WelcomeScreen.clearConsole();
         System.out.println("---Assignments Per Course---");
         for (Course c : AddDataLists.getArrCourse()) {
-            System.out.println(c.getTitle() + c.getStream());
-            System.out.println(c.assignmentPerCourse.getAssignmentPCourse());
+            System.out.println(c);
+            System.out.println(c.assignmentPerCourse.getArrAssignmentPCourse());
+            System.out.println("");
         }
     }
     public static void showStudentAssignments(Student s) {
@@ -88,7 +91,8 @@ public class ControllerData {
         System.out.println(s);
         for (Course c : s.coursesPStudent.getArrCoursesPStudent()) {
             System.out.println(c);
-            System.out.println(c.assignmentPerCourse.getAssignmentPCourse());
+            System.out.println(c.assignmentPerCourse.getArrAssignmentPCourse());
+            System.out.println(" ");
         }
     }
 
@@ -100,9 +104,39 @@ public class ControllerData {
                 System.out.println(student);
                 System.out.println("Attends the courses below:");
                 System.out.println(student.coursesPStudent.getArrCoursesPStudent());
+                System.out.println(" ");
             }
         }
 
     }
+    public static void showStudentsAssignmentsRelevantToGivenDate(){
+        WelcomeScreen.clearConsole();
+        LocalDate[] userdate = UserInput.getArrayCalendarWeekFromUserDate();
+        
+        for(Student s : AddDataLists.getArrStudent()){
+            
+            for (Course c : s.coursesPStudent.getArrCoursesPStudent()) {                 
+                 for (Assignment a : c.assignmentPerCourse.getArrAssignmentPCourse()) {
+                     String tmpDate = ConvertDateLong.convertLongToOriginalFormat(a.getSubDateTime());
+//                     
+                     if( ConvertDateLong.convertStringToLocaleDate(tmpDate).isAfter(userdate[0]) 
+                             && ConvertDateLong.convertStringToLocaleDate(tmpDate).isBefore(userdate[1])){
+                         System.out.println(s);
+                         System.out.println(c);
+                         System.out.println("During period "+userdate[0]
+                                 +" to "+ userdate[1]);                         
+                         System.out.println(s.getFirstName()+" "+s.getLastName()
+                                 + " has to deliver the "
+                                 + "assignments bellow.");
+                         System.out.println(a);
+                         System.out.println("");
+                     
+                     }
+                 }
+                
+            }
+            
+        }
+    }    
 
 }

@@ -3,6 +3,8 @@ package models;
 import controller.WelcomeScreen;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -162,7 +164,7 @@ public class UserInput {
                 System.out.println("[assignmenttitle assignmentdate description ]");
                 String allInputs = sc.nextLine();
                 assignment = allInputs.split(" ");
-            } while (assignment.length < 15);
+            } while (assignment.length > 15);
             title1 = new TitleName(assignment[0]);
             a = new Assignment(title1);
             a.setSubDateTime(checkMultipleDateInput(assignment[1]));
@@ -237,7 +239,7 @@ public class UserInput {
         boolean correctFormat = false;
         String dateOB = "";
         do {
-            System.out.println(" please enter DoB like this (DD/MM/YYY)");
+            System.out.println(" please enter like this (DD/MM/YYY)");
             dateOB = scan.next();
             try {
                 Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateOB);
@@ -252,17 +254,24 @@ public class UserInput {
         //i return date of birth as a string and 
         return ConvertDateLong.convertDate(dateOB);
     }
-    public static long askUserDateToShowStudentsWeekAssignments() {
+
+    public static LocalDate askUserDateToShowStudentsWeekAssignments() {
         Scanner scan = new Scanner(System.in);
         boolean correctFormat = false;
-        String dateOB = "";
+        String stringdate = "";
+        DateTimeFormatter formatter;
+        LocalDate localDate = null;
+        Date date;
         do {
-            System.out.println(" please enter the date you wish to see "
+            System.out.println("Please enter the date you wish to see "
                     + "all relevant student assignments"
-                    + "\n The must be typed like this (DD/MM/YYY)");
-            dateOB = scan.next();
+                    + "\nDate must be typed like this (DD/MM/YYY)");
+            stringdate = scan.next();
             try {
-                Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateOB);
+                formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
+                date = new SimpleDateFormat("dd/MM/yyyy").parse(stringdate);
+                localDate = LocalDate.parse(stringdate, formatter);
+
                 //if date hase a correct format the program shall continue
                 correctFormat = true;
 
@@ -272,7 +281,8 @@ public class UserInput {
             }
         } while (!correctFormat);
         //i return date of birth as a string and 
-        return ConvertDateLong.convertDate(dateOB);
+
+        return localDate;
     }
     
 
@@ -284,12 +294,13 @@ public class UserInput {
         do {
 
             if (firstTimePass == true) {
-                System.out.println(" please enter DoB like this (DD/MM/YYY)");
+                System.out.println(" please enter like this (DD/MM/YYY)");
                 dateOB = scan.next();
             }
             try {
                 Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateOB);
                 //if date hase a correct format the program shall continue
+
                 correctFormat = true;
 
             } catch (ParseException e) {
@@ -360,6 +371,58 @@ public class UserInput {
             c = sc.next().charAt(0);
         }
         return decidePartFullTime(c);
+    }
+
+    public static LocalDate[] getArrayCalendarWeekFromUserDate() {
+        LocalDate[] arrayCalendarWeekFromUserDate = new LocalDate[2];
+        LocalDate localdate = askUserDateToShowStudentsWeekAssignments();
+
+        switch(localdate.getDayOfWeek()){
+            case MONDAY:
+                arrayCalendarWeekFromUserDate[0]=localdate;
+                               
+                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(6);
+                
+                break;
+            case TUESDAY:
+                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(1);
+                              
+                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(5);
+                
+                break;
+            case WEDNESDAY:
+                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(2);
+                               
+                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(4);
+                
+                break;
+            case THURSDAY:
+                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(3);
+                               
+                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(3);
+                
+                break;
+            case FRIDAY:
+                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(4);
+                
+                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(2);
+                
+                break;
+            case SATURDAY:
+                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(5);
+               
+                arrayCalendarWeekFromUserDate[1]=localdate.plusDays(1);
+                
+                break;
+            case SUNDAY:
+                arrayCalendarWeekFromUserDate[0]=localdate.minusDays(6);
+                
+                arrayCalendarWeekFromUserDate[1]=localdate;
+                
+                break;
+        }
+
+        return arrayCalendarWeekFromUserDate;
     }
 
 }

@@ -18,7 +18,7 @@ public class TitleName {
 
     @Override
     public String toString() {
-        return "TitleName{" + "title=" + title + '}';
+        return "TitleName{" + title + '}';
     }
 
 }

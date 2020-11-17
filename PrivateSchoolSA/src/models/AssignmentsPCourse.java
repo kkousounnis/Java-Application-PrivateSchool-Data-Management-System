@@ -5,22 +5,22 @@ import java.util.ArrayList;
 public class AssignmentsPCourse {
 
     private Course course;
-    private final ArrayList<Assignment> assignmentPCourse;
+    private final ArrayList<Assignment> arrAssignmentPCourse;
 
     AssignmentsPCourse() {
-        assignmentPCourse = new ArrayList<>();
+        arrAssignmentPCourse = new ArrayList<>();
     }
 
     AssignmentsPCourse(Course course) {
         this.course = course;
-        assignmentPCourse = new ArrayList<>();
+        arrAssignmentPCourse = new ArrayList<>();
     }
 
-    public ArrayList<Assignment> getAssignmentPCourse() {
-        return assignmentPCourse;
+    public ArrayList<Assignment> getArrAssignmentPCourse() {
+        return arrAssignmentPCourse;
     }
 
     public void addAssignmentPCourse(Assignment assignment) {
-        this.assignmentPCourse.add(assignment);
+        this.arrAssignmentPCourse.add(assignment);
     }
 }

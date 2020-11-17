@@ -36,7 +36,7 @@ public class WelcomeScreen {
         clearConsole();
         showMainMenu();
         //i assigned to 3 because i only 1,2,3,4,5 choices 
-        this.choice = checkIntegerInput(5);
+        this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
                 clearConsole();
@@ -58,13 +58,15 @@ public class WelcomeScreen {
                 clearConsole();
                 Menu();
                 break;
-
+            case 6:
+                System.out.println("Goodbey!!!");
+                break;
         }
 
     }
 
     public void courseMenu() {
-        clearConsole();
+        
         showCourseMenu();
         //i assigned to 3 because i only 1,2,3,4,5,6 choices 
         this.choice = checkIntegerInput(6);
@@ -144,6 +146,7 @@ public class WelcomeScreen {
                             + "  in order to see his assignments "
                             + "by typing number");
                     studentIndex = checkIntegerInput(AddDataLists.getArrStudent().size());
+                    System.out.println("Assignments");
                     ControllerData.showStudentAssignments(AddDataLists.getArrStudent().get(studentIndex - 1));
                 } else {
                     System.out.println("\n---No student list"
@@ -155,7 +158,7 @@ public class WelcomeScreen {
             case 5:
                 clearConsole();
                 //assignment to do show students who attend in more than one course                
-                ControllerData.showStudentsMultipleCourses();                
+                ControllerData.showStudentsMultipleCourses();
                 studentMenu();
                 break;
             case 6:
@@ -200,7 +203,7 @@ public class WelcomeScreen {
                 }
                 trainerMenu();
                 break;
-            case 4:                
+            case 4:
                 clearConsole();
                 mainMenu();
                 break;
@@ -243,11 +246,10 @@ public class WelcomeScreen {
                 assignmentMenu();
                 break;
             case 4:
-            //to do
-                 clearConsole();
-                 //ask user with a method to give with scanner date long
-                 UserInput.askUserDateToShowStudentsWeekAssignments();
-                 assignmentMenu();
+                clearConsole();
+                //UserInput.getArrayCalendarWeekFromUserDate();
+                ControllerData.showStudentsAssignmentsRelevantToGivenDate();
+                assignmentMenu();
                 break;
             case 5:
                 clearConsole();
@@ -282,6 +284,7 @@ public class WelcomeScreen {
         System.out.println("3: Proceed to Trainer Menu.");
         System.out.println("4: Proceed to Assignment Menu.");
         System.out.println("5: Return to strat Menu.");
+        System.out.println("6: Terminate.");
 
     }
 
@@ -323,7 +326,8 @@ public class WelcomeScreen {
         System.out.println("1: Create manually assignment.");
         System.out.println("2: Show all assignments.");
         System.out.println("3: Choose course for assignment.");
-        System.out.println("4: Give date and show students with pending assignments.");
+        System.out.println("4: Give date and show students with"
+                + " all relevant student assignments.");
         System.out.println("5: Return.");
 
     }

@@ -44,9 +44,9 @@ public class FakeDataCreate {
         TitleName course1 = new TitleName("Course1");
         TitleName course2 = new TitleName("Course2");
 
-        long fullTimeStartDate = ConvertDateLong.convertDate("01/04/2021");
-        long fullTimeEndDate = ConvertDateLong.convertDate("31/05/2021");
-        long partTimeStartDate = ConvertDateLong.convertDate("01/03/2021");
+        long fullTimeStartDate = ConvertDateLong.convertDate("01/01/2021");
+        long fullTimeEndDate = ConvertDateLong.convertDate("31/03/2021");
+        long partTimeStartDate = ConvertDateLong.convertDate("01/01/2021");
         long partTimeEndDate = ConvertDateLong.convertDate("31/05/2021");
 
         Course c1 = new Course(course2, "Javascript", true,
@@ -101,13 +101,13 @@ public class FakeDataCreate {
         TitleName title4 = new TitleName("Assignment4");
 
         Assignment a1 = new Assignment(title1, "Create an Assignment1",
-                ConvertDateLong.convertDate("08/04/2021"));
+                ConvertDateLong.convertDate("08/01/2021"));
         Assignment a2 = new Assignment(title2, "Create an Assignment2",
-                ConvertDateLong.convertDate("08/04/2021"));
+                ConvertDateLong.convertDate("16/01/2021"));
         Assignment a3 = new Assignment(title3, "Create an Assignment3",
-                ConvertDateLong.convertDate("08/04/2021"));
+                ConvertDateLong.convertDate("24/01/2021"));
         Assignment a4 = new Assignment(title4, "Create an Assignment4",
-                ConvertDateLong.convertDate("08/04/2021"));
+                ConvertDateLong.convertDate("02/02/2021"));
         AddDataLists.AddAssignment(a1);
         AddDataLists.AddAssignment(a2);
         AddDataLists.AddAssignment(a3);
