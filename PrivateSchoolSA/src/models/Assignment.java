@@ -1,6 +1,8 @@
 package models;
 
-public class Assignment {
+import interfaces.IAssignment;
+
+public class Assignment implements IAssignment{
 
     private TitleName title;
     private String description;
@@ -19,18 +21,22 @@ public class Assignment {
         this.subDateTime = subDateTime;
     }
 
+    @Override
     public String getDescription() {
         return description;
     }
 
+    @Override
     public void setDescription(String description) {
         this.description = description;
     }
 
+    @Override
     public long getSubDateTime() {
         return subDateTime;
     }
 
+    @Override
     public void setSubDateTime(long subDateTime) {
         this.subDateTime = subDateTime;
     }

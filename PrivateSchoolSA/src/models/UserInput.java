@@ -20,8 +20,10 @@ public class UserInput {
         Person p = new Person();
         Student s;
         String[] student;
-        if (multipleOrStepBystepInput()) {
 
+        //ask user how he likes to proceed with step by step input or multiple
+        if (multipleOrStepBystepInput()) {
+            //for every input there is a security check methods are at the bottom
             System.out.println("Please give me students first name.");
             p.setFirstName(checkStringInputLength());
             System.out.println("Please give me students last name.");
@@ -72,7 +74,9 @@ public class UserInput {
         char tmp;
         TitleName t1;
         Course c;
+        //ask user how he likes to proceed with step by step input or multiple
         if (multipleOrStepBystepInput()) {
+            //for every input there is a security check methods are at the bottom
             WelcomeScreen.clearConsole();
             System.out.println("Please give the title of course.");
             t1 = new TitleName(checkStringInputLength());
@@ -121,8 +125,9 @@ public class UserInput {
         Scanner sc = new Scanner(System.in);
         Person p = new Person();
         Trainer t;
+        //ask user how he likes to proceed with step by step input or multiple
         if (multipleOrStepBystepInput()) {
-
+            //for every input there is a security check methods are at the bottom
             System.out.println("Please give me trainers first name.");
             p.setFirstName(checkStringInputLength());
             System.out.println("Please give me trainers last name.");
@@ -162,7 +167,9 @@ public class UserInput {
         Scanner sc = new Scanner(System.in);
         TitleName title1;
         Assignment a;
+        //ask user how he likes to proceed with step by step input or multiple
         if (multipleOrStepBystepInput()) {
+            //for every input there is a security check methods are at the bottom
             System.out.println("Please give me the title of assignment");
             title1 = new TitleName(checkStringInputLength());
 
@@ -214,7 +221,7 @@ public class UserInput {
     }
 
     //------------
-    //checks
+    //checks for every field which user has to input
     public static boolean checkInputType(char s) {
         switch (s) {
             case 'f':

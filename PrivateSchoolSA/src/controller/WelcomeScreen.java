@@ -20,13 +20,16 @@ public class WelcomeScreen {
         this.choice = checkIntegerInput(3);
         switch (this.choice) {
             case 1:
+                //go to Main menu without synthetic data
                 mainMenu();
                 break;
             case 2:
+                //go  to Main menu with fake data
                 FakeDataCreate.intializeLists();
                 mainMenu();
                 break;
             case 3:
+                //terminate program
                 System.out.println("Goodbey!!!");
                 break;
         }
@@ -40,22 +43,27 @@ public class WelcomeScreen {
         switch (this.choice) {
             case 1:
                 clearConsole();
+                //go to course menu
                 courseMenu();
                 break;
             case 2:
                 clearConsole();
+                //go to student menu
                 studentMenu();
                 break;
             case 3:
                 clearConsole();
+                //go to trainer menu
                 trainerMenu();
                 break;
             case 4:
                 clearConsole();
+                //go to assignment menu
                 assignmentMenu();
                 break;
             case 5:
                 clearConsole();
+                //return back
                 Menu();
                 break;
             case 6:
@@ -66,32 +74,38 @@ public class WelcomeScreen {
     }
 
     public void courseMenu() {
-        
+
         showCourseMenu();
         //i assigned to 3 because i only 1,2,3,4,5,6 choices 
         this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
+                //User create course 
                 UserInput.manualCourseList();
                 courseMenu();
                 break;
             case 2:
+                //Show a list of courses
                 ControllerData.showCourses();
                 courseMenu();
                 break;
             case 3:
+                //show studetns per cours
                 ControllerData.showStudentsPCourse();
                 courseMenu();
                 break;
             case 4:
+                //show trainers per course
                 ControllerData.showTrainersPCourse();
                 courseMenu();
                 break;
             case 5:
+                //show assignment per course
                 ControllerData.showAssignmentsPCourse();
                 courseMenu();
                 break;
             case 6:
+                //return to mainMenu
                 clearConsole();
                 mainMenu();
                 break;
@@ -102,23 +116,26 @@ public class WelcomeScreen {
     public void studentMenu() {
 
         showStudentMenu();
-        //i assigned to 3 because i only 1,2,3,4,5,6 choices 
+        //local variable to find position of both elements in lists
         int courseIndex;
         int studentIndex;
         this.choice = checkIntegerInput(6);
         switch (this.choice) {
             case 1:
                 clearConsole();
+                //User create manualy student
                 UserInput.manualStudentsLists();
                 studentMenu();
                 break;
             case 2:
                 clearConsole();
+                //show student list
                 ControllerData.showStudents();
                 studentMenu();
                 break;
             case 3:
                 clearConsole();
+                //first check if there is a course list
                 if (AddDataLists.getArrCourse().size() > 0) {
                     ControllerData.showStudents();
                     System.out.println("Please specify student "
@@ -140,6 +157,7 @@ public class WelcomeScreen {
                 clearConsole();
                 //assignment to do show student assignments
                 clearConsole();
+                //first check if there are any students
                 if (AddDataLists.getArrStudent().size() > 0) {
                     ControllerData.showStudents();
                     System.out.println("Please specify student from List"
@@ -157,21 +175,22 @@ public class WelcomeScreen {
 
             case 5:
                 clearConsole();
-                 if (AddDataLists.getArrCourse().size() > 1) {
+                //first check if there is a course list
+                if (AddDataLists.getArrCourse().size() > 1) {
                     // show students who attend in more than one course                
                     ControllerData.showStudentsMultipleCourses();
                     System.out.println("");
-                 }else{
-                     System.out.println("\n---No multiple courses have"
-                             + " been assigned yet.---\n"); 
-                     ControllerData.showCourses();
-                     System.out.println("We must have more than two" 
-                             + " courses assigned.\n");
-                     System.out.println(" PLease go to course menu"
-                             + " and assign more than 1 course.Then go"
-                             + " to student menu and assign students to more"
-                             + " than one course");
-                 }
+                } else {
+                    System.out.println("\n---No multiple courses have"
+                            + " been assigned yet.---\n");
+                    ControllerData.showCourses();
+                    System.out.println("We must have more than two"
+                            + " courses assigned.\n");
+                    System.out.println(" PLease go to course menu"
+                            + " and assign more than 1 course.Then go"
+                            + " to student menu and assign students to more"
+                            + " than one course");
+                }
                 studentMenu();
                 break;
             case 6:
@@ -190,16 +209,19 @@ public class WelcomeScreen {
         switch (this.choice) {
             case 1:
                 clearConsole();
+                //User create trainer manually
                 UserInput.manualTrainer();
                 trainerMenu();
                 break;
             case 2:
                 clearConsole();
+                //show trainer List
                 ControllerData.showTrainers();
                 trainerMenu();
                 break;
             case 3:
                 clearConsole();
+                //first check if there is a course list
                 if (AddDataLists.getArrCourse().size() > 0) {
                     ControllerData.showTrainers();
                     System.out.println("Please specify trainer "
@@ -232,16 +254,19 @@ public class WelcomeScreen {
         switch (this.choice) {
             case 1:
                 clearConsole();
+                //User create assignments manual
                 UserInput.manualAssignment();
                 assignmentMenu();
                 break;
             case 2:
                 clearConsole();
+                //show Assignment List
                 ControllerData.showAssignments();
                 assignmentMenu();
                 break;
             case 3:
                 clearConsole();
+                //first check if there is a course list
                 if (AddDataLists.getArrCourse().size() > 0) {
                     ControllerData.showAssignments();
                     System.out.println("Please specify trainer "
@@ -260,10 +285,10 @@ public class WelcomeScreen {
                 break;
             case 4:
                 clearConsole();
-                //UserInput.getArrayCalendarWeekFromUserDate();
+                //first check if there is a course list
                 if (AddDataLists.getArrCourse().size() > 0) {
                     ControllerData.showStudentsAssignmentsRelevantToGivenDate();
-                }else {
+                } else {
                     System.out.println("\n---No courses have been assigned yet.---\n");
                 }
                 assignmentMenu();
@@ -275,7 +300,7 @@ public class WelcomeScreen {
         }
 
     }
-
+    //Print Menus for User for every stage
     public void showWelcomeMenu() {
         System.out.println("---Welcome to Privete SchoolSA"
                 + " where every dream becomes a reality---");
@@ -348,7 +373,10 @@ public class WelcomeScreen {
         System.out.println("5: Return.");
 
     }
-
+    /*
+        For every user choice to move inside menu i check integer input to 
+        be valid
+    */
     public int checkIntegerInput(int x) {
         boolean catchexception = false;
         this.choice = 0;
@@ -370,7 +398,7 @@ public class WelcomeScreen {
         } while (!catchexception);
         return choice;
     }
-
+    //Every change of menu console clears
     public static void clearConsole() {
         for (int i = 0; i < 80; i++) // Default Height of cmd is 300 and Default width is 80
         {

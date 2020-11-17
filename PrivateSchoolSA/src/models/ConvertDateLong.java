@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class ConvertDateLong {
-
+    //converting string to long for dates
     public static long convertDate(String string_date) {
         SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
         long milliseconds = 0;
@@ -31,7 +31,7 @@ public class ConvertDateLong {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
         return dateFormat.format(d);
     }
-
+    //converting String to LocalDate
     public static LocalDate convertStringToLocaleDate(String stringdate) {
         boolean correctFormat = false;
 
