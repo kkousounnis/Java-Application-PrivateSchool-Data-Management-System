@@ -1,5 +1,4 @@
-# PrivateSchool
-Java-Console-Application-PrivateSchool-Data-Management-System
+# Java-Console-Application-PrivateSchool-Data-Management-System
 
 you are required to build a command prompt (console) application.
 The application must ask from the command prompt to input data to all the entities
