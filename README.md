@@ -1,2 +1,2 @@
 # PrivateSchool
-Bootcamp Private School Java Project for java Certification 2020 Java Core 8+
+Java-Console-Application-PrivateSchool-Data-Management-System
