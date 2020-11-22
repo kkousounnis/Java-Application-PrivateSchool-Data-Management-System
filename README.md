@@ -1,7 +1,12 @@
 # Java-Console-Application-PrivateSchool-Data-Management-System
 
-Command prompt (console) application.
-The application asks from the command prompt to input data to all the entities
+The development of this project includes the implementation of a private school structure.
+
+The application needs to hold in a database multiple courses along with the enrolled students, 
+the trainers that teach the subjects and the assignments that the students need to submit during the course duration.
+
+This repository refers to the first part  of the project and it asks 
+from the command prompt to input data to all the entities
 and it gives the option to add more than one entry at a time.
 If the user decides not to type any data, the program gives us synthetic data.
 Also, the program is able to output the following:
